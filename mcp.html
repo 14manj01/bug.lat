@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skyrim Worldspace MCP — AI-Generated Skyrim Worlds by James Mann</title>
+  <meta name="description" content="Skyrim Worldspace MCP by James Mann: a Model Context Protocol server with 80 tools that lets AI models generate Skyrim Special Edition worldspaces with terrain, roads, towns, vegetation, and navmesh, verified with Mutagen and the Creation Kit.">
+  <meta name="theme-color" content="#000000">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://bug.lat/mcp.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Skyrim Worldspace MCP">
+  <meta property="og:description" content="80 MCP tools that let AI models build Skyrim worlds.">
+  <meta property="og:url" content="https://bug.lat/mcp.html">
+  <meta property="og:image" content="https://bug.lat/assets/img/mcp-helgen-wide.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add("js")</script>
+  <meta name="author" content="James G. Mann">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta property="og:site_name" content="James Mann, Ph.D.">
+  <meta property="og:locale" content="en_US">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://bug.lat/mcp.html#webpage",
+        "url": "https://bug.lat/mcp.html",
+        "name": "Skyrim Worldspace MCP",
+        "isPartOf": { "@id": "https://bug.lat/#website" },
+        "mainEntity": { "@id": "https://bug.lat/mcp.html#software" },
+        "primaryImageOfPage": "https://bug.lat/assets/img/mcp-helgen-wide.jpg",
+        "breadcrumb": { "@type": "BreadcrumbList", "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bug.lat/" },
+          { "@type": "ListItem", "position": 2, "name": "MCP Project", "item": "https://bug.lat/mcp.html" }
+        ] }
+      },
+      { "@type": "Person", "@id": "https://bug.lat/#person", "name": "James Mann", "alternateName": ["James G. Mann"], "url": "https://bug.lat/" },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://bug.lat/mcp.html#software",
+        "name": "Skyrim Worldspace MCP",
+        "alternateName": "SkyrimWorldspaceMCP",
+        "description": "Model Context Protocol server exposing 80 tools that let AI models generate Skyrim Special Edition worldspaces: terrain, erosion, rivers, roads, villages, vegetation, site transplants, and navmesh, verified with Mutagen and an isolated Creation Kit sandbox.",
+        "programmingLanguage": ["Python", "C#", "C++"],
+        "runtimePlatform": "Windows",
+        "keywords": "Model Context Protocol, MCP server, Skyrim Special Edition, procedural generation, worldspace, Creation Kit, Mutagen, navmesh, local LLM, Qwen",
+        "image": ["https://bug.lat/assets/img/mcp-helgen-wide.jpg", "https://bug.lat/assets/img/mcp-helgen-compare.jpg", "https://bug.lat/assets/img/mcp-highway.jpg"],
+        "author": { "@id": "https://bug.lat/#person" },
+        "creativeWorkStatus": "In development"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="assets/img/avatar.jpg" alt="" width="26" height="26">bug.lat</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resume.html">Résumé</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="programming.html">Programming</a></li>
+        <li><a href="mcp.html" aria-current="page">MCP Project</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow reveal">Skyrim Worldspace MCP</p>
+        <h1 class="display reveal d1"><span class="grad-blue">Skyrim, generated.</span></h1>
+        <p class="lead reveal d2">A Model Context Protocol server that gives AI models the tools to build complete Skyrim Special Edition worlds: mountains, rivers, roads, forts, and towns that look like Bethesda made them and work in-game.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:10px">
+      <div class="wrap">
+        <figure class="figure reveal">
+          <img src="assets/img/mcp-helgen-wide.jpg" alt="Helgen fort and town transplanted into a generated worldspace, viewed in the Creation Kit" width="717" height="461" style="aspect-ratio:717/461;object-fit:cover;max-height:620px">
+          <figcaption><b>Helgen, transplanted.</b> All 8 cells of the fort town, 570 objects with terrain and navmesh, rebuilt in a new worldspace and rendered in the Creation Kit.</figcaption>
+        </figure>
+
+        <div class="bento" style="margin-top:20px">
+          <div class="card span-2 reveal"><p class="stat grad-blue">80</p><p class="stat-label">MCP tools</p></div>
+          <div class="card span-2 reveal d1"><p class="stat grad-green">366</p><p class="stat-label">automated tests</p></div>
+          <div class="card span-2 reveal d2"><p class="stat grad-amber">2,048</p><p class="stat-label">objects per draft build</p></div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="headline">The idea.</h2>
+          <p class="lead">Hand a model an empty heightmap and a prompt, like “here is Hammerfell, generate it,” and get back a playable world with no manual touch-up.</p>
+        </div>
+        <div class="bento">
+          <div class="card span-3 reveal">
+            <p class="kicker">Tools, not scripts</p>
+            <h3 class="title">Any AI client can drive it.</h3>
+            <p>MCP is an open standard, so the same server works with cloud assistants or a fully local Qwen model. Tools preview options first, then commit fingerprinted draft revisions, so a model can explore safely and every result is reproducible from its seed.</p>
+          </div>
+          <div class="card span-3 reveal d1">
+            <p class="kicker">Proof, not vibes</p>
+            <h3 class="title">Every build is verified.</h3>
+            <p>Plugins are written byte-for-byte, then read back independently with Mutagen. A sandboxed Creation Kit with a custom C++ camera plug-in captures frames bound to exact draft and build hashes, so visual review is tied to the bytes that produced it.</p>
+          </div>
+          <div class="card span-2 reveal">
+            <h3 class="title">Terrain</h3>
+            <p>Mountains, carved rivers, thermal and drainage erosion, water planes, and seam-safe heights across cells.</p>
+          </div>
+          <div class="card span-2 reveal d1">
+            <h3 class="title">Placement</h3>
+            <p>Seeded scatter of trees, rocks, and flowers with collision and path clearance. Objects are grounded on the generated terrain.</p>
+          </div>
+          <div class="card span-2 reveal d2">
+            <h3 class="title">Sites &amp; roads</h3>
+            <p>Villages with gardens and yards, highways from vanilla road pieces, and generated navmesh so NPCs can walk.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="headline">Learn from Bethesda.</h2>
+          <p class="lead">Procedural scenes look procedural. So the engine starts from complete Bethesda-authored locations, then climbs a ladder of variation, learning densities and snap rules from the game itself.</p>
+        </div>
+        <div class="ladder reveal d1">
+          <div class="now"><b>Copy</b><span>Exact transplant of a vanilla site</span></div>
+          <div class="now"><b>Re-seat</b><span>Rotate, mirror, fit to new terrain</span></div>
+          <div><b>Re-dress</b><span>Swap clutter, biome and faction palettes</span></div>
+          <div><b>Recombine</b><span>New layouts from parts of many sites</span></div>
+          <div><b>Grow</b><span>Extend with Bethesda’s kit snap rules</span></div>
+          <div><b>Generate</b><span>New sites from the learned rules</span></div>
+        </div>
+        <p class="muted reveal" style="text-align:center;font-size:14px;margin-top:14px">Highlighted rungs work today.</p>
+
+        <figure class="figure reveal" style="margin-top:44px">
+          <img src="assets/img/mcp-helgen-compare.jpg" alt="Side by side: vanilla Helgen on the left, transplanted Helgen on the right, same camera" width="1444" height="485" loading="lazy">
+          <figcaption><b>Same camera, two worlds.</b> Vanilla Helgen in Tamriel (left) and the transplant in a generated worldspace (right). Colored volumes are Creation Kit editor markers.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="headline">Top-down pipeline.</h2>
+          <p class="lead">Each stage either accepts a supplied layer or generates it, and never overwrites what it was given.</p>
+        </div>
+        <ol class="steps reveal d1">
+          <li>Land</li>
+          <li>Climate &amp; biomes</li>
+          <li>Rivers &amp; lakes</li>
+          <li>Site plan</li>
+          <li>Roads</li>
+          <li>Terrain detail</li>
+          <li>Sites</li>
+          <li>Wilderness fill</li>
+          <li>Interiors</li>
+          <li>Gameplay records</li>
+          <li>LOD</li>
+          <li>Automated QA</li>
+        </ol>
+
+        <div class="bento" style="margin-top:44px">
+          <figure class="figure span-4 reveal">
+            <img src="assets/img/mcp-highway.jpg" alt="A generated highway crossing open terrain with scattered pines and rocks" width="717" height="461" loading="lazy">
+            <figcaption><b>Wilderness highway.</b> Assembled from vanilla road pieces, dressed with trees and rocks placed from vanilla templates.</figcaption>
+          </figure>
+          <div class="card span-2 reveal d1">
+            <p class="kicker">Stack</p>
+            <h3 class="title">Built with</h3>
+            <div class="chips"><span class="chip">Python</span><span class="chip">MCP (stdio)</span><span class="chip">C# / .NET</span><span class="chip">Mutagen</span><span class="chip">C++ CKPE plug-in</span><span class="chip">Creation Kit</span><span class="chip">Local Qwen LLM</span></div>
+            <p class="muted" style="margin-top:18px;font-size:15px">Developed with a team of AI coding agents (Claude, Codex, DeepSeek, and a local Qwen model) working under one shared set of project rules.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="card reveal" style="text-align:center">
+          <p class="kicker">Status</p>
+          <h2 class="title">In active development.</h2>
+          <p class="muted" style="max-width:620px;margin:10px auto 0">The repository is private while the core pipeline matures. Follow along on GitHub or X for updates.</p>
+          <div class="actions">
+            <a class="btn" href="https://github.com/14manj01" target="_blank" rel="noopener"><span class="i i-github"></span>GitHub</a>
+            <a class="btn ghost" href="https://x.com/TheBugCPT" target="_blank" rel="noopener"><span class="i i-x"></span>@TheBugCPT</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <span>© <span data-year>2026</span> James Mann. Views are my own and do not reflect the U.S. Army or Department of Defense. Skyrim is a trademark of ZeniMax Media; this is an unaffiliated fan project.</span>
+      <div class="footer-social">
+        <a href="https://github.com/14manj01" target="_blank" rel="noopener" aria-label="GitHub"><span class="i i-github"></span></a>
+        <a href="https://x.com/TheBugCPT" target="_blank" rel="noopener" aria-label="X"><span class="i i-x"></span></a>
+        <a href="https://steamcommunity.com/id/aedesaegypti" target="_blank" rel="noopener" aria-label="Steam"><span class="i i-steam"></span></a>
+        <button type="button" data-copy="Cpt72bug" aria-label="Copy Discord username"><span class="i i-discord"></span></button>
+        <a href="https://www.researchgate.net/profile/James-Mann-3" target="_blank" rel="noopener" aria-label="ResearchGate"><span class="i i-researchgate"></span></a>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
