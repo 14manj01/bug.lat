@@ -19,12 +19,28 @@
   </url>
   <url>
     <loc>https://bug.lat/mcp.html</loc>
-    <lastmod>2026-10-28</lastmod>
-    <image:image><image:loc>https://bug.lat/assets/img/mcp-m3-bridge.jpg</image:loc></image:image>
-    <image:image><image:loc>https://bug.lat/assets/img/mcp-m3-site.jpg</image:loc></image:image>
-    <image:image><image:loc>https://bug.lat/assets/img/mcp-terrain-r11.jpg</image:loc></image:image>
-    <image:image><image:loc>https://bug.lat/assets/img/mcp-helgen-wide.jpg</image:loc></image:image>
+    <lastmod>2026-10-29</lastmod>
     <image:image><image:loc>https://bug.lat/assets/img/mcp-helgen-compare.jpg</image:loc></image:image>
     <image:image><image:loc>https://bug.lat/assets/img/mcp-highway.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/mcp-terrain-r11.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/mcp/biomes-before-after-vanilla.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/mcp/desert-oblique.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/mcp/dungeon-nordic-room.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/mcp/dungeon-plans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/mcp/flora-anequina-dryrun.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/mcp/m3-eye-bridge.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/mcp/m3-eye-camp.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/mcp/m3-eye-greymoor.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/mcp/m3-eye-riverwood.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/mcp/m3-oblique-r3-r5-vanilla.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/mcp/m3-top-r3-r5-vanilla.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/mcp/roads-generated-vs-vanilla.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/mcp/scenes-aerial.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/mcp/scenes-top.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/mcp/siteplan.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/mcp/tiles-band.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/mcp/variation-farm.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/mcp/variation-fort.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/mcp/waterfalls-before-after-vanilla.jpg</image:loc></image:image>
   </url>
 </urlset>

@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Skyrim Worldspace MCP — AI-Generated Skyrim Worlds by James Mann</title>
-  <meta name="description" content="Skyrim Worldspace MCP by James Mann: a Model Context Protocol server with 80 tools plus a .NET build pipeline that generates Skyrim Special Edition regions with terrain, rivers, roads and bridges, transplanted vanilla sites, biomes, navmesh, and distant LOD, verified with Mutagen, the Creation Kit, and an in-game test harness.">
+  <meta name="description" content="Skyrim Worldspace MCP by James Mann: an MCP server and .NET pipeline that generates Skyrim Special Edition worlds from vanilla terrain pieces: eight landscape types, rivers and waterfalls, terrain-driven biomes, transplanted towns and forts, learned road and site plans, generated caves, navmesh and LOD. Project log with pictures beside vanilla.">
   <meta name="theme-color" content="#000000">
   <meta name="color-scheme" content="dark">
   <link rel="canonical" href="https://bug.lat/mcp.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Skyrim Worldspace MCP">
-  <meta property="og:description" content="80 MCP tools and a .NET pipeline that build whole Skyrim regions, verified down to the byte.">
+  <meta property="og:description" content="Generated Skyrim worlds, side by side with vanilla: terrain, waterfalls, biomes, towns, roads and caves.">
   <meta property="og:url" content="https://bug.lat/mcp.html">
-  <meta property="og:image" content="https://bug.lat/assets/img/mcp-m3-bridge.jpg">
+  <meta property="og:image" content="https://bug.lat/assets/img/mcp/scenes-top.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -36,7 +36,7 @@
         "name": "Skyrim Worldspace MCP",
         "isPartOf": { "@id": "https://bug.lat/#website" },
         "mainEntity": { "@id": "https://bug.lat/mcp.html#software" },
-        "primaryImageOfPage": "https://bug.lat/assets/img/mcp-helgen-wide.jpg",
+        "primaryImageOfPage": "https://bug.lat/assets/img/mcp/scenes-top.jpg",
         "breadcrumb": { "@type": "BreadcrumbList", "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bug.lat/" },
           { "@type": "ListItem", "position": 2, "name": "MCP Project", "item": "https://bug.lat/mcp.html" }
@@ -48,14 +48,14 @@
         "@id": "https://bug.lat/mcp.html#software",
         "name": "Skyrim Worldspace MCP",
         "alternateName": "SkyrimWorldspaceMCP",
-        "description": "Model Context Protocol server exposing 80 tools, backed by a .NET pipeline, that lets AI models generate Skyrim Special Edition regions: terrain, rivers, lakes, coast, roads and bridges from vanilla pieces, transplanted and varied vanilla sites, biome fill, navmesh, regions and map markers, and distant LOD, verified with Mutagen, an isolated Creation Kit sandbox, and an unattended in-game test harness.",
+        "description": "Model Context Protocol server exposing 80 tools, backed by a .NET pipeline, that lets AI models generate Skyrim Special Edition worlds: terrain quilted from vanilla landscape pieces in eight scene types, rivers, lakes and waterfalls, biomes placed from scene type and terrain, site and road plans learned from Tamriel, transplanted and varied vanilla sites, generated caves and Nordic ruins, navmesh, and distant LOD, verified with Mutagen, an isolated Creation Kit sandbox, and an unattended in-game test harness.",
         "programmingLanguage": ["Python", "C#", "C++"],
         "runtimePlatform": "Windows",
         "keywords": "Model Context Protocol, MCP server, Skyrim Special Edition, procedural generation, worldspace, Creation Kit, Mutagen, navmesh, local LLM, Qwen",
-        "image": ["https://bug.lat/assets/img/mcp-m3-bridge.jpg", "https://bug.lat/assets/img/mcp-m3-site.jpg", "https://bug.lat/assets/img/mcp-terrain-r11.jpg", "https://bug.lat/assets/img/mcp-helgen-wide.jpg", "https://bug.lat/assets/img/mcp-helgen-compare.jpg", "https://bug.lat/assets/img/mcp-highway.jpg"],
+        "image": ["https://bug.lat/assets/img/mcp/scenes-top.jpg", "https://bug.lat/assets/img/mcp/m3-top-r3-r5-vanilla.jpg", "https://bug.lat/assets/img/mcp/m3-eye-bridge.jpg", "https://bug.lat/assets/img/mcp/waterfalls-before-after-vanilla.jpg", "https://bug.lat/assets/img/mcp/biomes-before-after-vanilla.jpg", "https://bug.lat/assets/img/mcp/roads-generated-vs-vanilla.jpg", "https://bug.lat/assets/img/mcp-helgen-compare.jpg"],
         "author": { "@id": "https://bug.lat/#person" },
         "creativeWorkStatus": "In development",
-        "dateModified": "2026-10-28"
+        "dateModified": "2026-10-29"
       }
     ]
   }
@@ -81,173 +81,444 @@
       <div class="wrap">
         <p class="eyebrow reveal">Skyrim Worldspace MCP</p>
         <h1 class="display reveal d1"><span class="grad-blue">Skyrim, generated.</span></h1>
-        <p class="lead reveal d2">A Model Context Protocol server that gives AI models the tools to build complete Skyrim Special Edition worlds: mountains, rivers, roads, forts, and towns that look like Bethesda made them and work in-game.</p>
+        <p class="lead reveal d2">A Model Context Protocol server and a .NET build pipeline that let AI models build Skyrim Special Edition worlds: mountains, rivers, waterfalls, biomes, forts and towns, roads and bridges, caves and ruins. The aim is a world that looks like Bethesda made it and works in the game.</p>
+        <p class="muted reveal d3" style="font-size:14px;margin-top:18px">Project log, updated October 29, 2026. Every picture below is a real build output, shown next to vanilla Skyrim wherever a comparison exists.</p>
       </div>
     </section>
 
-    <section class="section" style="padding-top:10px">
+    <nav class="subnav" aria-label="On this page">
       <div class="wrap">
-        <figure class="figure reveal">
-          <img src="assets/img/mcp-helgen-wide.jpg" alt="Helgen fort and town transplanted into a generated worldspace, viewed in the Creation Kit" width="717" height="461" style="aspect-ratio:717/461;object-fit:cover;max-height:620px">
-          <figcaption><b>Helgen, transplanted.</b> All 8 cells of the fort town, 570 objects with terrain and navmesh, rebuilt in a new worldspace and rendered in the Creation Kit.</figcaption>
-        </figure>
+        <a href="#overview">Overview</a><a href="#status">Status</a><a href="#terrain">Terrain</a><a href="#water">Rivers &amp; falls</a><a href="#biomes">Biomes</a><a href="#region">The region</a><a href="#tiles">Joined regions</a><a href="#sites">Sites</a><a href="#roads">Roads</a><a href="#interiors">Interiors</a><a href="#flora">New biomes</a><a href="#verification">Verification</a><a href="#process">How it’s built</a><a href="#timeline">Timeline</a><a href="#next">Next</a>
+      </div>
+    </nav>
 
+    <section class="section anchor" id="overview" style="padding-top:40px">
+      <div class="wrap">
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/scenes-top.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/scenes-top.jpg" alt="Eight generated landscapes seen from above: Skyrim mix, tundra plains, pine forest, fall forest, the Reach, snow peaks, an island, and a desert stand-in" width="1800" height="897"></a>
+          <figcaption><b>Eight landscapes, one generator.</b> Each panel is a separate 64×64-cell world (about half the area of Skyrim’s map) from the same seed, one per scene type. Blue is water: every river runs continuously from its source to a lake or the sea. Hillshade render of the raw heightmap.</figcaption>
+        </figure>
         <div class="bento" style="margin-top:20px">
-          <div class="card span-2 reveal"><p class="stat grad-blue">80</p><p class="stat-label">MCP tools</p></div>
-          <div class="card span-2 reveal d1"><p class="stat grad-green">272</p><p class="stat-label">vanilla sites in the transplant library, 263 passing headless checks</p></div>
-          <div class="card span-2 reveal d2"><p class="stat grad-amber">8×8</p><p class="stat-label">cell region from one command, built twice byte-identical</p></div>
-          <div class="card span-2 reveal"><p class="stat grad-blue">1,398</p><p class="stat-label">snap rules learned from Bethesda’s own kit pieces</p></div>
-          <div class="card span-2 reveal d1"><p class="stat grad-green">34,313</p><p class="stat-label">gameplay links in the latest region, 0 unresolved</p></div>
-          <div class="card span-2 reveal d2"><p class="stat grad-amber">7/7</p><p class="stat-label">walkability routes passed, bridge deck included</p></div>
+          <div class="card span-2 reveal"><p class="stat grad-blue">80</p><p class="stat-label">MCP tools an AI client can call</p></div>
+          <div class="card span-2 reveal d1"><p class="stat grad-green">8</p><p class="stat-label">landscape scene types, each modeled on a real part of Skyrim</p></div>
+          <div class="card span-2 reveal d2"><p class="stat grad-amber">11–25 s</p><p class="stat-label">to generate a 64×64-cell world’s terrain, rivers and lakes</p></div>
+          <div class="card span-2 reveal"><p class="stat grad-blue">272</p><p class="stat-label">Bethesda sites in the transplant library, 263 passing headless checks</p></div>
+          <div class="card span-2 reveal d1"><p class="stat grad-green">0</p><p class="stat-label">differences along the seams of three regions built separately and joined</p></div>
+          <div class="card span-2 reveal d2"><p class="stat grad-amber">550</p><p class="stat-label">commits in the first seven days, each result rebuilt and checked from its commit</p></div>
         </div>
       </div>
     </section>
 
     <hr class="divider">
 
-    <section class="section">
+    <section class="section anchor" id="status">
       <div class="wrap">
         <div class="section-head reveal">
-          <h2 class="headline">The idea.</h2>
-          <p class="lead">Hand a model an empty heightmap and a prompt, like “here is Hammerfell, generate it,” and get back a playable world with no manual touch-up.</p>
+          <p class="eyebrow">Where things stand</p>
+          <h2 class="headline">Status, October 29.</h2>
+          <p class="lead">Most of the pipeline now runs end to end. The current work fixes what James flagged in the last review, then builds the next test region on the new biomes.</p>
         </div>
-        <div class="bento">
-          <div class="card span-3 reveal">
-            <p class="kicker">Tools, not scripts</p>
-            <h3 class="title">Any AI client can drive it.</h3>
-            <p>MCP is an open standard, so the same server works with cloud assistants or a fully local Qwen model. Tools preview options first, then commit fingerprinted draft revisions, so a model can explore safely and every result is reproducible from its seed.</p>
-          </div>
-          <div class="card span-3 reveal d1">
-            <p class="kicker">Proof, not vibes</p>
-            <h3 class="title">Every build is verified.</h3>
-            <p>Plugins are written byte-for-byte, then read back independently with Mutagen. A sandboxed Creation Kit with a custom C++ camera plug-in captures frames bound to exact build hashes, and an unattended harness boots the real game, walks NPCs along test routes, and restores the install file-for-file afterwards.</p>
-          </div>
-          <div class="card span-2 reveal">
-            <h3 class="title">Terrain</h3>
-            <p>Mountain ranges laid out at world scale, carved rivers, lakes, and coastline, with slopes held to what Bethesda’s own landscape uses.</p>
-          </div>
-          <div class="card span-2 reveal d1">
-            <h3 class="title">Biomes</h3>
-            <p>Forests, tundra, and cliffs filled at vanilla density from terrain-matched vanilla patches, with blended edges and a forest floor that follows its trees.</p>
-          </div>
-          <div class="card span-2 reveal d2">
-            <h3 class="title">Roads &amp; bridges</h3>
-            <p>Highways and spurs from vanilla road pieces with blended shoulders. Any road that would cross water without a bridge is refused.</p>
-          </div>
-          <div class="card span-2 reveal">
-            <h3 class="title">Navmesh</h3>
-            <p>Generated for open ground, sites, and bridge decks, then stitched across merged regions so NPC routes connect from tile to tile.</p>
-          </div>
-          <div class="card span-2 reveal d1">
-            <h3 class="title">Living content</h3>
-            <p>Linked cave interiors, doors, leveled bandits, wildlife, regions, locations, and map markers, all measured against vanilla.</p>
-          </div>
-          <div class="card span-2 reveal d2">
-            <h3 class="title">Distant LOD</h3>
-            <p>xLODGen runs unattended, so far-off terrain and trees match the build that was just written.</p>
-          </div>
-        </div>
+        <div class="table-wrap reveal"><table class="data"><thead><tr><th>Part</th><th>State</th><th>Latest result</th></tr></thead><tbody>
+<tr><td>Terrain generator</td><td><span class="st ok">Approved</span></td><td>Eight scene types quilted from vanilla Skyrim terrain pieces. James: “I think this looks amazing.”</td></tr>
+<tr><td>Waterfalls</td><td><span class="st ok">Reworked today</span></td><td>Smooth humps replaced by broken rock steps and a plunge pool; size and steepness now within vanilla’s typical spread.</td></tr>
+<tr><td>Desert scene</td><td><span class="st ok">New today</span></td><td>Built from the Reach’s badlands, Eastmarch’s volcanic flats and Solstheim’s ash plains. Stand-in until custom desert models arrive.</td></tr>
+<tr><td>Biomes</td><td><span class="st ok">New today</span></td><td>Placed from the scene type and the terrain, never from map position. No more straight borders.</td></tr>
+<tr><td>Test region (M3)</td><td><span class="st run">Round 6 building</span></td><td>Round 5 is the approved baseline. Round 6 rebuilds it on the new biomes and fixes the site-ground squares.</td></tr>
+<tr><td>Joined regions</td><td><span class="st ok">Working</span></td><td>Three regions built separately and joined with 0 seam differences; navmesh connects across.</td></tr>
+<tr><td>Site plan</td><td><span class="st run">Revising</span></td><td>Learned from 279 Tamriel sites. Being changed so cities only go on ground as good as vanilla’s city sites.</td></tr>
+<tr><td>Road network</td><td><span class="st run">Revising</span></td><td>Learned from Skyrim’s 78 km of roads. Fords and smoother hairpins in progress.</td></tr>
+<tr><td>Caves and ruins</td><td><span class="st run">Round 3</span></td><td>Generated from Bethesda’s kit pieces. Round 3 adds open caverns.</td></tr>
+<tr><td>Site variation</td><td><span class="st wait">Awaiting review</span></td><td>Farms and forts re-laid-out and re-dressed with swapped building and fence kits.</td></tr>
+<tr><td>In the game</td><td><span class="st next">This week</span></td><td>The test harness boots and restores Skyrim reliably; walking the generated region in game is next.</td></tr>
+</tbody></table></div>
       </div>
     </section>
 
-    <section class="section" style="padding-top:0">
+    <hr class="divider">
+
+    <section class="section anchor" id="terrain">
       <div class="wrap">
         <div class="section-head reveal">
-          <h2 class="headline">Learn from Bethesda.</h2>
-          <p class="lead">Procedural scenes look procedural. So the engine starts from complete Bethesda-authored locations, then climbs a ladder of variation, learning densities and snap rules from the game itself.</p>
+          <p class="eyebrow">Landscape</p>
+          <h2 class="headline">Terrain made from Skyrim itself.</h2>
+          <p class="lead">The first generator drew mountains from math, and they never looked like Skyrim. The current one plans the large shape, then builds the ground out of real pieces of Bethesda’s landscape.</p>
         </div>
-        <div class="ladder reveal d1">
+        <div class="prose reveal">
+          <p><b>Scene plan first.</b> A seeded plan lays out where the ranges, basins, valleys and coast go, using proportions measured from a real part of Skyrim for that scene type. A pine scene gets the Falkreath forest hills; a Reach scene gets the Reach’s broken rock; an island scene gets a Solstheim-like coast.</p>
+          <p><b>Then quilting.</b> The ground inside the plan is assembled from 5×5-cell pieces of Tamriel and Solstheim. Each piece is chosen to match the plan and its neighbours, then blended in. The Throat of the World is left out of the library so it can’t be copied, and no generated peak rises above its height.</p>
+          <p><b>Then water.</b> Rivers are carved downhill to lakes or the sea with a continuous bed, lakes get stepped water planes like vanilla’s, and waterfalls form where a river drops between levels.</p>
+          <p><b>Deterministic.</b> The same seed, settings and game files always give the same terrain, byte for byte. A scene builds in 11–25 seconds for 64×64 cells on a 32-thread machine.</p>
+        </div>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/scenes-aerial.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/scenes-aerial.jpg" alt="Low-angle views of the highest ground in each of the eight generated scenes" width="1800" height="653" loading="lazy"></a>
+          <figcaption><b>The biggest massif in each scene.</b> Same eight worlds, looking at the highest ground from a low angle. Snow peaks rise into single massifs; the Reach and fall forest stay broken and hilly, like their vanilla sources.</figcaption>
+        </figure>
+        <div class="table-wrap reveal"><table class="data"><thead><tr><th>Scene</th><th>Terrain pieces from</th><th>Character</th></tr></thead><tbody>
+<tr><td>Skyrim mix</td><td>All of Skyrim</td><td>Ranges, open tundra, river valleys, lakes</td></tr>
+<tr><td>Tundra plains</td><td>Skyrim’s tundra region (Whiterun’s plains)</td><td>Wide, gentle ground with meandering rivers</td></tr>
+<tr><td>Pine forest</td><td>Skyrim’s pine forest region (Falkreath)</td><td>Rolling hills, many small lakes</td></tr>
+<tr><td>Fall forest</td><td>Skyrim’s fall forest region (the Rift)</td><td>Lumpy ground, terraces, many lakes</td></tr>
+<tr><td>The Reach</td><td>The Reach</td><td>Broken rock, gorges, steep small hills</td></tr>
+<tr><td>Snow peaks</td><td>Skyrim’s snow region</td><td>Tall single massifs and high valleys</td></tr>
+<tr><td>Island</td><td>Solstheim</td><td>Coastline, offshore islets, a central upland</td></tr>
+<tr><td>Desert (stand-in)</td><td>Reach badlands, Eastmarch volcanic flats, Solstheim ash</td><td>Dry, rugged ground with few rivers</td></tr>
+</tbody></table></div>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp-terrain-r11.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp-terrain-r11.jpg" alt="Three distant-LOD views from the same camera: an older terrain round, a later one, and vanilla Skyrim" width="1444" height="498" loading="lazy"></a>
+          <figcaption><b>Where it started.</b> An earlier, math-based generator (rounds 10 and 11, left and center) beside vanilla Tamriel (right). James’s verdict that it lacked Skyrim’s sweeping ranges led to the redesign above.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section anchor" id="water">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Water</p>
+          <h2 class="headline">Rivers, lakes and waterfalls.</h2>
+          <p class="lead">Skyrim’s rivers step down through the landscape on flat water planes, with a waterfall at each step. The generator reproduces that, and every river is checked from source to mouth.</p>
+        </div>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/waterfalls-before-after-vanilla.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/waterfalls-before-after-vanilla.jpg" alt="Close-ups of three waterfalls: before the rework, after, and vanilla Skyrim" width="1600" height="1080" loading="lazy"></a>
+          <figcaption><b>Waterfalls, before (left), after (middle), vanilla (right).</b> The old falls were smooth humps ending in a wall. They are now a concave drop made of small rock steps with benches, ending in a plunge pool. Untextured terrain, water in blue.</figcaption>
+        </figure>
+        <div class="table-wrap reveal"><table class="data"><thead><tr><th>Measure (median)</th><th class="n">Before</th><th class="n">Now</th><th class="n">Vanilla</th></tr></thead><tbody>
+<tr><td>Lip height, share of the drop</td><td class="n">0.94</td><td class="n">0.65</td><td class="n">0.63</td></tr>
+<tr><td>Biggest single step on the face (units)</td><td class="n">672</td><td class="n">200</td><td class="n">164</td></tr>
+<tr><td>Face steepness</td><td class="n">75°</td><td class="n">39°</td><td class="n">27°</td></tr>
+<tr><td>Face area steeper than 45°</td><td class="n">59%</td><td class="n">35%</td><td class="n">31%</td></tr>
+<tr><td>Plunge pool depth (units)</td><td class="n">168</td><td class="n">200</td><td class="n">169</td></tr>
+</tbody></table></div>
+        <div class="prose reveal">
+          <p>The faces are still a little steeper than vanilla’s, mostly because our falls drop further (a median of 1,104 units against vanilla’s 762). Every build checks that rivers carry water along their whole length (at most 0.1% of river points dry), have no breaks, and don’t kink at cell edges. On today’s 24 test worlds all water checks pass.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section anchor" id="biomes">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Biomes</p>
+          <h2 class="headline">Biomes from the land, not the map.</h2>
+          <p class="lead">Which ground textures, trees and rocks go where is now decided by the scene type and the shape of the land, the way Skyrim’s own regions follow its terrain.</p>
+        </div>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/biomes-before-after-vanilla.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/biomes-before-after-vanilla.jpg" alt="Five textured top views: the old biome map, two versions of the new one, and two vanilla Skyrim areas" width="1800" height="367" loading="lazy"></a>
+          <figcaption><b>Left to right:</b> the old biome map, which split the region along a straight line; the new map’s default; the new map with a forest-line setting that keeps the test region’s pine/tundra transition; and two vanilla Tamriel areas for comparison.</figcaption>
+        </figure>
+        <div class="prose reveal">
+          <p><b>How it works.</b> Each scene type carries vanilla’s mix of biomes for that kind of country. A model trained on Tamriel then places them by elevation, slope and terrain shape. Map position is never an input, so no border runs straight across the world. An optional forest-line setting moves the pine/tundra boundary up or down the hills.</p>
+          <p><b>Results.</b> In the test region the longest straight run of biome border fell from 17 km to 12 km (vanilla areas: 14–34 km). Transitions are as wide as vanilla’s, about 1,300 units. There are no volcanic patches where they don’t belong.</p>
+          <p><b>Filling.</b> Trees, shrubs, rocks and ground cover come from terrain-matched patches of vanilla Skyrim, at vanilla’s density. The forest floor follows the trees, roadsides get their own trees, and a regulator keeps exposed rock near vanilla’s share. Still open: shore textures appear beside some inland lakes, and the default Skyrim mix makes too little fall forest (1% against vanilla’s 7.6%).</p>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section anchor" id="region">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">The test region</p>
+          <h2 class="headline">Milestone 3: a whole region.</h2>
+          <p class="lead">An 8×8-cell region written by one command: generated terrain and river, three transplanted sites, a highway with a vanilla bridge, biome fill, navmesh, gameplay records, and distant LOD.</p>
+        </div>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/m3-top-r3-r5-vanilla.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/m3-top-r3-r5-vanilla.jpg" alt="Three textured top-down LOD views: region round 3, round 5, and vanilla Skyrim" width="1800" height="614" loading="lazy"></a>
+          <figcaption><b>From above.</b> Round 3 (left), the approved round 5 on the new terrain generator (center), and a vanilla Tamriel area (right), all with textured distant LOD and the same camera.</figcaption>
+        </figure>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/m3-oblique-r3-r5-vanilla.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/m3-oblique-r3-r5-vanilla.jpg" alt="Three oblique distant-LOD views: round 3, round 5 with its surroundings, and vanilla Skyrim" width="1800" height="621" loading="lazy"></a>
+          <figcaption><b>From the north.</b> Round 3 was built as an isolated window (left). Round 5 (center) sits inside its generated surroundings, with snow on the far ranges, beside vanilla Tamriel (right).</figcaption>
+        </figure>
+        <div class="figure-grid" style="margin-top:20px">
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/m3-eye-bridge.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/m3-eye-bridge.jpg" alt="The generated highway approaching a vanilla stone bridge over the river" width="717" height="461" loading="lazy"></a>
+          <figcaption><b>The river crossing.</b> The highway crosses on Bethesda’s Bridge01, seated on generated banks no steeper than vanilla’s.</figcaption>
+        </figure><figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/m3-eye-greymoor.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/m3-eye-greymoor.jpg" alt="Fort Greymoor’s gate transplanted onto generated terrain" width="717" height="461" loading="lazy"></a>
+          <figcaption><b>Fort Greymoor.</b> The fort’s gate, transplanted with its navmesh onto generated ground.</figcaption>
+        </figure><figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/m3-eye-riverwood.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/m3-eye-riverwood.jpg" alt="Riverwood’s gate transplanted onto generated terrain" width="717" height="461" loading="lazy"></a>
+          <figcaption><b>Riverwood.</b> The village gate on new ground. Boxes and rings are Creation Kit editor markers.</figcaption>
+        </figure><figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/m3-eye-camp.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/m3-eye-camp.jpg" alt="A transplanted camp on generated terrain" width="717" height="461" loading="lazy"></a>
+          <figcaption><b>Steamcrag camp.</b> A small site seated on the generated hillside.</figcaption>
+        </figure>
+        </div>
+        <div class="table-wrap reveal"><table class="data"><thead><tr><th>Round 5 check</th><th>Result</th></tr></thead><tbody>
+<tr><td>Rebuilt from its commit on a clean copy</td><td><span class="good">Byte-identical</span> (raw and final plugin hashes match)</td></tr>
+<tr><td>Plugin read back with Mutagen</td><td><span class="good">Pass</span></td></tr>
+<tr><td>Walkability routes on the navmesh, bridge deck included</td><td><span class="good">7 of 7</span></td></tr>
+<tr><td>Roads crossing water without a bridge</td><td><span class="good">0</span></td></tr>
+<tr><td>Site and road banks steeper than vanilla’s</td><td><span class="good">0</span></td></tr>
+<tr><td>Distant LOD generated unattended</td><td><span class="good">Yes</span></td></tr>
+</tbody></table></div>
+        <div class="prose reveal">
+          <p><b>Round 6 (building now)</b> rebuilds the same region on the new biomes, blends each transplanted site’s vanilla ground into the surrounding biome (Fort Dunstad’s snowy square was the visible case), and makes sites near a tile edge reproducible from both sides.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section anchor" id="tiles">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Scale</p>
+          <h2 class="headline">Regions that join without seams.</h2>
+          <p class="lead">A full world will be built tile by tile, so separately built regions have to meet exactly.</p>
+        </div>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/tiles-band.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/tiles-band.jpg" alt="Textured top view of three regions built separately and joined" width="1440" height="480" loading="lazy"></a>
+          <figcaption><b>Three regions, built separately and merged.</b> Heights, colours, normals, water, the highway, textures and navmesh all agree at the joins: 0 differences on every shared edge, and navmesh links run across. Each region takes about 80 seconds and 7–8 GB of memory.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section anchor" id="sites">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Sites</p>
+          <h2 class="headline">Learning from Bethesda’s sites.</h2>
+          <p class="lead">Procedural towns look procedural. So the engine starts from complete Bethesda-authored locations and climbs a ladder of variation, learning the rules from the game itself.</p>
+        </div>
+        <div class="ladder reveal">
           <div class="now"><b>Copy</b><span>Exact transplant of a vanilla site</span></div>
           <div class="now"><b>Re-seat</b><span>Rotate, mirror, fit to new terrain</span></div>
-          <div class="now"><b>Re-dress</b><span>Swap clutter, biome and faction palettes</span></div>
+          <div class="now"><b>Re-dress</b><span>Swap clutter, buildings and fences by biome and faction</span></div>
           <div class="now"><b>Recombine</b><span>New layouts from parts of many sites</span></div>
           <div class="now"><b>Grow</b><span>Extend with Bethesda’s kit snap rules</span></div>
           <div><b>Generate</b><span>New sites from the learned rules</span></div>
         </div>
-        <p class="muted reveal" style="text-align:center;font-size:14px;margin-top:14px">Highlighted rungs work today.</p>
-
-        <figure class="figure reveal" style="margin-top:44px">
-          <img src="assets/img/mcp-helgen-compare.jpg" alt="Side by side: vanilla Helgen on the left, transplanted Helgen on the right, same camera" width="1444" height="485" loading="lazy">
-          <figcaption><b>Same camera, two worlds.</b> Vanilla Helgen in Tamriel (left) and the transplant in a generated worldspace (right). Colored volumes are Creation Kit editor markers.</figcaption>
+        <p class="muted reveal" style="text-align:center;font-size:14px;margin:14px 0 44px">Highlighted rungs work today. 1,398 snap rules have been learned from Bethesda’s kit pieces.</p>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp-helgen-compare.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp-helgen-compare.jpg" alt="Side by side: vanilla Helgen on the left, transplanted Helgen on the right, same camera" width="1444" height="485" loading="lazy"></a>
+          <figcaption><b>Milestone 1: Helgen, transplanted.</b> All 8 cells of the fort town, 570 objects with terrain and navmesh, rebuilt in a new worldspace. Vanilla (left) and transplant (right), same camera. Accepted.</figcaption>
+        </figure>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/variation-fort.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/variation-fort.jpg" alt="Three eye-height views of a fort: vanilla and two generated variations" width="1800" height="406" loading="lazy"></a>
+          <figcaption><b>Variation: a fort.</b> The vanilla copy (left) and variants A and B. Layouts are re-seated and re-dressed with swapped building and fence kits.</figcaption>
+        </figure>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/variation-farm.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/variation-farm.jpg" alt="Three top-down views of a crop farm: vanilla and two generated variations" width="1800" height="406" loading="lazy"></a>
+          <figcaption><b>Variation: a crop farm from above.</b> The field split is learned from vanilla farms: on farms held out of training, misses fell from 5 of 11 to 1 of 11.</figcaption>
+        </figure>
+        <h3 class="sub-head reveal">Where sites go</h3>
+        <div class="prose reveal"><p>A deterministic planner places cities, towns, villages, forts, farms, mines, camps, ruins, towers and shrines across a generated world, using spacing and ground rules learned from 279 Tamriel sites. A 64×64-cell world gets about 246 sites. The current revision only places a city where the ground is as good as vanilla’s city sites, preferring fewer cities to bad ones.</p></div>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/siteplan.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/siteplan.jpg" alt="Three site maps: a vanilla Tamriel area, an earlier generated plan, and the current plan" width="1559" height="552" loading="lazy"></a>
+          <figcaption><b>Site plans.</b> Vanilla Tamriel at the same scale (left); an earlier plan that put a city on snowy peaks (center, circled); the current plan with cities and towns only on valley floors (right).</figcaption>
         </figure>
       </div>
     </section>
 
     <hr class="divider">
 
-    <section class="section">
+    <section class="section anchor" id="roads">
       <div class="wrap">
         <div class="section-head reveal">
-          <h2 class="headline">The latest build.</h2>
-          <p class="lead">Milestone 3 is a full 8×8-cell region: generated terrain and river, transplanted sites, a highway with a vanilla bridge, biome fill, navmesh, and LOD, written by one command.</p>
+          <p class="eyebrow">Roads</p>
+          <h2 class="headline">A road network learned from Skyrim’s.</h2>
+          <p class="lead">Skyrim’s road network was measured from its road pieces and path textures: 78 km of road and 38 bridges. The planner reproduces how those roads choose their routes.</p>
         </div>
-        <div class="bento">
-          <figure class="figure span-3 reveal">
-            <img src="assets/img/mcp-m3-bridge.jpg" alt="A vanilla stone bridge carrying the generated highway over a river in rocky, generated terrain" width="717" height="461" loading="lazy">
-            <figcaption><b>River crossing.</b> The highway meets the river on a vanilla bridge, seated on generated banks no steeper than Bethesda’s.</figcaption>
-          </figure>
-          <figure class="figure span-3 reveal d1">
-            <img src="assets/img/mcp-m3-site.jpg" alt="A transplanted settlement among pines on generated terrain, viewed in the Creation Kit" width="717" height="461" loading="lazy">
-            <figcaption><b>Site on new ground.</b> A transplanted settlement in the region’s pine biome. Boxes and rings are Creation Kit editor markers.</figcaption>
-          </figure>
-          <figure class="figure span-6 reveal">
-            <img src="assets/img/mcp-terrain-r11.jpg" alt="Three distant-LOD terrain views from the same camera: generator round 10, round 11, and vanilla Skyrim" width="1444" height="498" loading="lazy">
-            <figcaption><b>Mountains, round by round.</b> Terrain round 10 (left), the approved round 11 (center), and vanilla Tamriel (right), same camera and textured LOD. Every round is judged against vanilla.</figcaption>
-          </figure>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/roads-generated-vs-vanilla.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/roads-generated-vs-vanilla.jpg" alt="Two road maps: a generated network with trunk roads, side roads and planned bridges, and vanilla Tamriel’s extracted network" width="1800" height="790" loading="lazy"></a>
+          <figcaption><b>Generated (left) and vanilla (right).</b> Trunk roads (red) join cities and towns; side roads (orange) reach the other sites; cyan marks planned bridges. The generated world has 21 km of trunk road, 48 km of side road and 15 bridges.</figcaption>
+        </figure>
+        <div class="prose reveal">
+          <p><b>Calibrated on real roads.</b> A least-cost router was tuned so that, between real Skyrim sites, 29% of its route lies on vanilla’s actual road, against 15% for a shortest-path baseline. Roads are then assembled from vanilla road pieces with blended shoulders. A build gate refuses any road that crosses water without a bridge.</p>
+          <p><b>In progress:</b> fords where vanilla would use them (about 40% of vanilla’s river crossings) and smoother hairpins on steep ground.</p>
         </div>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp-highway.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp-highway.jpg" alt="A generated highway crossing open terrain with scattered pines and rocks" width="717" height="461" loading="lazy"></a>
+          <figcaption><b>Wilderness highway.</b> Vanilla road pieces dressed with trees and rocks placed from vanilla templates.</figcaption>
+        </figure>
       </div>
     </section>
 
     <hr class="divider">
 
-    <section class="section">
+    <section class="section anchor" id="interiors">
       <div class="wrap">
         <div class="section-head reveal">
-          <h2 class="headline">Top-down pipeline.</h2>
-          <p class="lead">Each stage either accepts a supplied layer or generates it, and never overwrites what it was given.</p>
+          <p class="eyebrow">Interiors</p>
+          <h2 class="headline">Caves and Nordic ruins from Bethesda’s kits.</h2>
+          <p class="lead">The dungeon generator snaps Bethesda’s own kit pieces together using rules learned from vanilla dungeons, then adds navmesh, doors and lighting.</p>
         </div>
-        <ol class="steps reveal d1">
-          <li>Land</li>
-          <li>Climate &amp; biomes</li>
-          <li>Rivers &amp; lakes</li>
-          <li>Site plan</li>
-          <li>Roads</li>
-          <li>Terrain detail</li>
-          <li>Sites</li>
-          <li>Wilderness fill</li>
-          <li>Interiors</li>
-          <li>Gameplay records</li>
-          <li>LOD</li>
-          <li>Automated QA</li>
-        </ol>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/dungeon-plans.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/dungeon-plans.jpg" alt="Three dungeon floor plans: a vanilla cave and two generated caves" width="1800" height="463" loading="lazy"></a>
+          <figcaption><b>Floor plans.</b> Vanilla Swindler’s Den (left) and two generated caves (center, right). Round 2 caves read as corridors between rooms; round 3, in progress, grows open caverns from the large cave-room kit the way vanilla builds them.</figcaption>
+        </figure>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/dungeon-nordic-room.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/dungeon-nordic-room.jpg" alt="Two in-editor views: a vanilla Nordic barrow room and a generated Nordic ruin room" width="1622" height="520" loading="lazy"></a>
+          <figcaption><b>Nordic ruin.</b> Vanilla Shroud Hearth Barrow (left) and a generated ruin room (right) in the Creation Kit.</figcaption>
+        </figure>
+        <div class="prose reveal">
+          <p>Each generated dungeon is read back, checked for gaps between pieces, and its navmesh tested for reachability, and it rebuilds identically from its commit. Generated navmesh was about four times denser than vanilla’s; round 3 thins it to vanilla’s density. The first linked interior, the Guldun Rock cave behind Fort Greymoor’s sewer grate, was approved.</p>
+        </div>
 
-        <div class="bento" style="margin-top:44px">
-          <figure class="figure span-4 reveal">
-            <img src="assets/img/mcp-highway.jpg" alt="A generated highway crossing open terrain with scattered pines and rocks" width="717" height="461" loading="lazy">
-            <figcaption><b>Wilderness highway.</b> Assembled from vanilla road pieces, dressed with trees and rocks placed from vanilla templates.</figcaption>
-          </figure>
-          <div class="card span-2 reveal d1">
-            <p class="kicker">Stack</p>
-            <h3 class="title">Built with</h3>
-            <div class="chips"><span class="chip">Python</span><span class="chip">MCP (stdio)</span><span class="chip">C# / .NET 10</span><span class="chip">Mutagen</span><span class="chip">C++ CKPE plug-in</span><span class="chip">Creation Kit</span><span class="chip">xLODGen</span><span class="chip">Papyrus test harness</span><span class="chip">Local Qwen LLM</span></div>
-            <p class="muted" style="margin-top:18px;font-size:15px">Developed with a team of AI coding agents (Claude, Codex, DeepSeek, and a local Qwen model) working under one shared set of project rules.</p>
-          </div>
-        </div>
       </div>
     </section>
 
-    <section class="section" style="padding-top:0">
+    <hr class="divider">
+
+    <section class="section anchor" id="flora">
       <div class="wrap">
-        <div class="card reveal" style="text-align:center">
-          <p class="kicker">Status</p>
+        <div class="section-head reveal">
+          <p class="eyebrow">New biomes</p>
+          <h2 class="headline">Ready for new lands.</h2>
+          <p class="lead">The pipeline can take biomes Skyrim doesn’t have, such as Elsweyr’s Anequina desert, once custom models are supplied.</p>
+        </div>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/flora-anequina-dryrun.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/flora-anequina-dryrun.jpg" alt="A dry run of an Anequina desert biome: placements map and zone map" width="1800" height="770" loading="lazy"></a>
+          <figcaption><b>Anequina dry run.</b> A desert biome spec run on vanilla stand-in models: 1,562 placements, with ground zones (dunes, badlands, mesa tops, scrub) shown on the right. An intake validator checks new models before they enter a build.</figcaption>
+        </figure>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/desert-oblique.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/desert-oblique.jpg" alt="Five low-angle terrain views: three generated desert scenes, the vanilla Reach and vanilla Solstheim ash" width="1800" height="250" loading="lazy"></a>
+          <figcaption><b>Desert terrain.</b> Three seeds of the new desert scene (left) beside the vanilla Reach and Solstheim’s ash lands (right), the sources it is built from. Dunes, mesas and dry riverbeds come later with custom models.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section anchor" id="verification">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Verification</p>
+          <h2 class="headline">Proof, not vibes.</h2>
+          <p class="lead">Nothing is accepted on a model’s say-so. Every result is rebuilt from its commit and checked by machine, then judged by eye against vanilla.</p>
+        </div>
+        <div class="bento">
+          <div class="card span-3 reveal">
+            <p class="kicker">Byte-level</p>
+            <h3 class="title">Rebuilt and read back.</h3>
+            <p>Plugins are written byte for byte, then read back independently with Mutagen. A reviewer rebuilds each result from a clean copy of its commit and compares hashes before anything is shown for approval.</p>
+          </div>
+          <div class="card span-3 reveal d1">
+            <p class="kicker">Build gates</p>
+            <h3 class="title">Checks that refuse a build.</h3>
+            <p>No road over water without a bridge; no site or road bank steeper than vanilla’s; continuous rivers; matching seams between regions; dependency checks for actors and quests; cliff-top exposure; forest floor under its trees.</p>
+          </div>
+          <div class="card span-3 reveal">
+            <p class="kicker">Creation Kit</p>
+            <h3 class="title">A sandboxed editor.</h3>
+            <p>An isolated Creation Kit with a custom C++ camera plug-in captures views tied to exact build hashes. xLODGen runs unattended so distant terrain matches the build just written.</p>
+          </div>
+          <div class="card span-3 reveal d1">
+            <p class="kicker">In the game</p>
+            <h3 class="title">An unattended test harness.</h3>
+            <p>It boots the real game, walks NPCs along test routes, and restores the install file for file. Calibration session: 8 of 8 boots and restores verified. The generated region’s first in-game walk is planned this week.</p>
+          </div>
+        </div>
+        <div class="callout reveal" style="margin-top:28px"><b>Pictures beside vanilla.</b> Numbers “inside vanilla’s range” are not enough, because Skyrim’s spread is wide. Every round is shown next to vanilla at the same camera, and James makes the call. A learned critic trained on 51 of his verdicts scores 7 of 9 on held-out terrain rounds, not yet good enough to stand in for him.</div>
+
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section anchor" id="process">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">How it’s built</p>
+          <h2 class="headline">One architect, a team of agents.</h2>
+          <p class="lead">The project is developed by AI coding agents working under one set of project rules, with James setting direction and judging the pictures.</p>
+        </div>
+        <div class="bento">
+          <div class="card span-3 reveal">
+            <p class="kicker">Lanes</p>
+            <h3 class="title">Up to four agents at once.</h3>
+            <p>An architect agent splits the work into lanes (terrain, biomes, sites and assembly, interiors, roads and plans, gameplay content, in-game testing). Each lane owns its files, commits only those, and hands its result back with pictures. The architect rebuilds and checks it before James sees it.</p>
+          </div>
+          <div class="card span-3 reveal d1">
+            <p class="kicker">Decisions</p>
+            <h3 class="title">Agreed with pictures.</h3>
+            <p>Big changes go to James as a decision brief: options with example pictures and a recommended choice. His verdicts are recorded per round and become training data for the critic.</p>
+          </div>
+          <div class="card span-4 reveal">
+            <p class="kicker">Rules</p>
+            <h3 class="title">Official game files only.</h3>
+            <p>Sources are Skyrim.esm, Update.esm and the three official DLC, in an explicit load order. No third-party mods, and the game install is never modified outside the test harness, which restores it.</p>
+          </div>
+          <div class="card span-2 reveal d1">
+            <p class="kicker">Stack</p>
+            <h3 class="title">Built with</h3>
+            <div class="chips"><span class="chip">Python</span><span class="chip">MCP (stdio)</span><span class="chip">C# / .NET 10</span><span class="chip">Mutagen</span><span class="chip">C++ CKPE plug-in</span><span class="chip">Creation Kit</span><span class="chip">xLODGen</span><span class="chip">Papyrus</span><span class="chip">Claude</span><span class="chip">Codex</span><span class="chip">Local Qwen</span></div>
+          </div>
+        </div>
+        <div class="table-wrap reveal" style="margin-top:28px"><table class="data"><thead><tr><th>Pipeline stage</th><th>Module</th><th>State</th></tr></thead><tbody>
+<tr><td>Land and water</td><td>TerrainGen</td><td><span class="st ok">Working</span></td></tr>
+<tr><td>Biomes and wilderness fill</td><td>BiomeFill</td><td><span class="st ok">Working</span></td></tr>
+<tr><td>Site plan</td><td>SitePlan</td><td><span class="st run">Revising</span></td></tr>
+<tr><td>Road network</td><td>RoadPlan</td><td><span class="st run">Revising</span></td></tr>
+<tr><td>Sites: transplant and assembly</td><td>SiteTransplant</td><td><span class="st ok">Working</span></td></tr>
+<tr><td>Site variation</td><td>SiteVariation</td><td><span class="st wait">In review</span></td></tr>
+<tr><td>Navmesh</td><td>NavmeshGen</td><td><span class="st ok">Working</span></td></tr>
+<tr><td>Interiors and dungeons</td><td>InteriorTransplant, DungeonGen</td><td><span class="st run">Round 3</span></td></tr>
+<tr><td>Gameplay records and persistent content</td><td>GameplayLayer, PersistentContent</td><td><span class="st ok">Working</span></td></tr>
+<tr><td>Distant LOD</td><td>LodGen</td><td><span class="st ok">Working</span></td></tr>
+<tr><td>Checks and in-game tests</td><td>MutagenCheck, GameTest</td><td><span class="st ok">Working</span></td></tr>
+</tbody></table></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section anchor" id="timeline">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Timeline</p>
+          <h2 class="headline">Seven days in.</h2>
+          <p class="lead">From an empty repository on October 23 to generated worlds with transplanted towns.</p>
+        </div>
+        <ol class="timeline reveal">
+          <li><time>Oct 23–24</time><b>Foundations</b>Plugin writing and Mutagen read-back, the Creation Kit sandbox, the first MCP tools.</li>
+          <li><time>Oct 27</time><b>Milestone 1: Helgen</b>The whole fort town transplanted into a new worldspace with terrain and navmesh. Accepted.</li>
+          <li><time>Oct 28</time><b>Region pieces accepted</b>Roads with blended shoulders, lakes and coast, biomes, site variation, Fort Greymoor with doors and bandits, the Guldun Rock cave, distant LOD, regions and map markers. M3 round 3 became the best region so far, but its mountains weren’t Skyrim’s.</li>
+          <li><time>Oct 28, evening</time><b>The terrain redesign</b>Two prototypes; James chose quilting from vanilla terrain: “so much better… not all mountains anymore.” Ported into the pipeline the same night.</li>
+          <li><time>Oct 29, overnight</time><b>Ten items in one night</b>Per-scene layouts, M3 round 5 on the new terrain, the dungeon generator, a site planner, a road planner, joined regions, site variation round 4, desert flora intake, the critic. James approved all recommended options in the morning.</li>
+          <li><time>Oct 29, morning</time><b>Biomes, desert, waterfalls</b>Biomes from the scene type, the desert scene and the waterfall rework landed and were verified. M3 round 6, caverns and the plan fixes are in progress.</li>
+        </ol>
+
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section anchor" id="next">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Next</p>
+          <h2 class="headline">What comes next.</h2>
+          <p class="lead">In order:</p>
+        </div>
+        <div class="table-wrap reveal"><table class="data"><tbody>
+<tr><td>1</td><td>M3 round 6 on the new biomes, with site ground blended into its surroundings.</td></tr>
+<tr><td>2</td><td>First in-game walk of a generated region with the test harness.</td></tr>
+<tr><td>3</td><td>Cities on their best ground, fords and smoother roads; then a full generated world tile by tile from a site and road plan.</td></tr>
+<tr><td>4</td><td>Open caverns and Nordic ruins at vanilla quality, linked to the overworld.</td></tr>
+<tr><td>5</td><td>Custom desert models for Anequina: dunes, mesas and dry riverbeds.</td></tr>
+</tbody></table></div>
+        <div class="card reveal" style="text-align:center;margin-top:28px">
+          <p class="kicker">Follow along</p>
           <h2 class="title">In active development.</h2>
-          <p class="muted" style="max-width:620px;margin:10px auto 0">Milestone 1, the Helgen transplant, is accepted. Milestone 3, a full region, waits on its final mountain pass and an in-game walk-through. The repository is private while the core pipeline matures. Follow along on GitHub or X for updates.</p>
-          <p class="muted" style="font-size:13px;margin-top:10px">Updated October 28, 2026.</p>
+          <p class="muted" style="max-width:620px;margin:10px auto 0">The repository is private while the core pipeline matures. Updates go out on GitHub and X.</p>
           <div class="actions">
             <a class="btn" href="https://github.com/14manj01" target="_blank" rel="noopener"><span class="i i-github"></span>GitHub</a>
             <a class="btn ghost" href="https://x.com/TheBugCPT" target="_blank" rel="noopener"><span class="i i-x"></span>@TheBugCPT</a>
           </div>
         </div>
+
       </div>
     </section>
   </main>
