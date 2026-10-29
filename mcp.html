@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Skyrim Worldspace MCP — AI-Generated Skyrim Worlds by James Mann</title>
-  <meta name="description" content="Skyrim Worldspace MCP by James Mann: a Model Context Protocol server with 80 tools that lets AI models generate Skyrim Special Edition worldspaces with terrain, roads, towns, vegetation, and navmesh, verified with Mutagen and the Creation Kit.">
+  <meta name="description" content="Skyrim Worldspace MCP by James Mann: a Model Context Protocol server with 80 tools plus a .NET build pipeline that generates Skyrim Special Edition regions with terrain, rivers, roads and bridges, transplanted vanilla sites, biomes, navmesh, and distant LOD, verified with Mutagen, the Creation Kit, and an in-game test harness.">
   <meta name="theme-color" content="#000000">
   <meta name="color-scheme" content="dark">
   <link rel="canonical" href="https://bug.lat/mcp.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Skyrim Worldspace MCP">
-  <meta property="og:description" content="80 MCP tools that let AI models build Skyrim worlds.">
+  <meta property="og:description" content="80 MCP tools and a .NET pipeline that build whole Skyrim regions, verified down to the byte.">
   <meta property="og:url" content="https://bug.lat/mcp.html">
-  <meta property="og:image" content="https://bug.lat/assets/img/mcp-helgen-wide.jpg">
+  <meta property="og:image" content="https://bug.lat/assets/img/mcp-m3-bridge.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -48,13 +48,14 @@
         "@id": "https://bug.lat/mcp.html#software",
         "name": "Skyrim Worldspace MCP",
         "alternateName": "SkyrimWorldspaceMCP",
-        "description": "Model Context Protocol server exposing 80 tools that let AI models generate Skyrim Special Edition worldspaces: terrain, erosion, rivers, roads, villages, vegetation, site transplants, and navmesh, verified with Mutagen and an isolated Creation Kit sandbox.",
+        "description": "Model Context Protocol server exposing 80 tools, backed by a .NET pipeline, that lets AI models generate Skyrim Special Edition regions: terrain, rivers, lakes, coast, roads and bridges from vanilla pieces, transplanted and varied vanilla sites, biome fill, navmesh, regions and map markers, and distant LOD, verified with Mutagen, an isolated Creation Kit sandbox, and an unattended in-game test harness.",
         "programmingLanguage": ["Python", "C#", "C++"],
         "runtimePlatform": "Windows",
         "keywords": "Model Context Protocol, MCP server, Skyrim Special Edition, procedural generation, worldspace, Creation Kit, Mutagen, navmesh, local LLM, Qwen",
-        "image": ["https://bug.lat/assets/img/mcp-helgen-wide.jpg", "https://bug.lat/assets/img/mcp-helgen-compare.jpg", "https://bug.lat/assets/img/mcp-highway.jpg"],
+        "image": ["https://bug.lat/assets/img/mcp-m3-bridge.jpg", "https://bug.lat/assets/img/mcp-m3-site.jpg", "https://bug.lat/assets/img/mcp-terrain-r11.jpg", "https://bug.lat/assets/img/mcp-helgen-wide.jpg", "https://bug.lat/assets/img/mcp-helgen-compare.jpg", "https://bug.lat/assets/img/mcp-highway.jpg"],
         "author": { "@id": "https://bug.lat/#person" },
-        "creativeWorkStatus": "In development"
+        "creativeWorkStatus": "In development",
+        "dateModified": "2026-10-28"
       }
     ]
   }
@@ -93,8 +94,11 @@
 
         <div class="bento" style="margin-top:20px">
           <div class="card span-2 reveal"><p class="stat grad-blue">80</p><p class="stat-label">MCP tools</p></div>
-          <div class="card span-2 reveal d1"><p class="stat grad-green">366</p><p class="stat-label">automated tests</p></div>
-          <div class="card span-2 reveal d2"><p class="stat grad-amber">2,048</p><p class="stat-label">objects per draft build</p></div>
+          <div class="card span-2 reveal d1"><p class="stat grad-green">272</p><p class="stat-label">vanilla sites in the transplant library, 263 passing headless checks</p></div>
+          <div class="card span-2 reveal d2"><p class="stat grad-amber">8×8</p><p class="stat-label">cell region from one command, built twice byte-identical</p></div>
+          <div class="card span-2 reveal"><p class="stat grad-blue">1,398</p><p class="stat-label">snap rules learned from Bethesda’s own kit pieces</p></div>
+          <div class="card span-2 reveal d1"><p class="stat grad-green">34,313</p><p class="stat-label">gameplay links in the latest region, 0 unresolved</p></div>
+          <div class="card span-2 reveal d2"><p class="stat grad-amber">7/7</p><p class="stat-label">walkability routes passed, bridge deck included</p></div>
         </div>
       </div>
     </section>
@@ -116,19 +120,31 @@
           <div class="card span-3 reveal d1">
             <p class="kicker">Proof, not vibes</p>
             <h3 class="title">Every build is verified.</h3>
-            <p>Plugins are written byte-for-byte, then read back independently with Mutagen. A sandboxed Creation Kit with a custom C++ camera plug-in captures frames bound to exact draft and build hashes, so visual review is tied to the bytes that produced it.</p>
+            <p>Plugins are written byte-for-byte, then read back independently with Mutagen. A sandboxed Creation Kit with a custom C++ camera plug-in captures frames bound to exact build hashes, and an unattended harness boots the real game, walks NPCs along test routes, and restores the install file-for-file afterwards.</p>
           </div>
           <div class="card span-2 reveal">
             <h3 class="title">Terrain</h3>
-            <p>Mountains, carved rivers, thermal and drainage erosion, water planes, and seam-safe heights across cells.</p>
+            <p>Mountain ranges laid out at world scale, carved rivers, lakes, and coastline, with slopes held to what Bethesda’s own landscape uses.</p>
           </div>
           <div class="card span-2 reveal d1">
-            <h3 class="title">Placement</h3>
-            <p>Seeded scatter of trees, rocks, and flowers with collision and path clearance. Objects are grounded on the generated terrain.</p>
+            <h3 class="title">Biomes</h3>
+            <p>Forests, tundra, and cliffs filled at vanilla density from terrain-matched vanilla patches, with blended edges and a forest floor that follows its trees.</p>
           </div>
           <div class="card span-2 reveal d2">
-            <h3 class="title">Sites &amp; roads</h3>
-            <p>Villages with gardens and yards, highways from vanilla road pieces, and generated navmesh so NPCs can walk.</p>
+            <h3 class="title">Roads &amp; bridges</h3>
+            <p>Highways and spurs from vanilla road pieces with blended shoulders. Any road that would cross water without a bridge is refused.</p>
+          </div>
+          <div class="card span-2 reveal">
+            <h3 class="title">Navmesh</h3>
+            <p>Generated for open ground, sites, and bridge decks, then stitched across merged regions so NPC routes connect from tile to tile.</p>
+          </div>
+          <div class="card span-2 reveal d1">
+            <h3 class="title">Living content</h3>
+            <p>Linked cave interiors, doors, leveled bandits, wildlife, regions, locations, and map markers, all measured against vanilla.</p>
+          </div>
+          <div class="card span-2 reveal d2">
+            <h3 class="title">Distant LOD</h3>
+            <p>xLODGen runs unattended, so far-off terrain and trees match the build that was just written.</p>
           </div>
         </div>
       </div>
@@ -143,9 +159,9 @@
         <div class="ladder reveal d1">
           <div class="now"><b>Copy</b><span>Exact transplant of a vanilla site</span></div>
           <div class="now"><b>Re-seat</b><span>Rotate, mirror, fit to new terrain</span></div>
-          <div><b>Re-dress</b><span>Swap clutter, biome and faction palettes</span></div>
-          <div><b>Recombine</b><span>New layouts from parts of many sites</span></div>
-          <div><b>Grow</b><span>Extend with Bethesda’s kit snap rules</span></div>
+          <div class="now"><b>Re-dress</b><span>Swap clutter, biome and faction palettes</span></div>
+          <div class="now"><b>Recombine</b><span>New layouts from parts of many sites</span></div>
+          <div class="now"><b>Grow</b><span>Extend with Bethesda’s kit snap rules</span></div>
           <div><b>Generate</b><span>New sites from the learned rules</span></div>
         </div>
         <p class="muted reveal" style="text-align:center;font-size:14px;margin-top:14px">Highlighted rungs work today.</p>
@@ -154,6 +170,31 @@
           <img src="assets/img/mcp-helgen-compare.jpg" alt="Side by side: vanilla Helgen on the left, transplanted Helgen on the right, same camera" width="1444" height="485" loading="lazy">
           <figcaption><b>Same camera, two worlds.</b> Vanilla Helgen in Tamriel (left) and the transplant in a generated worldspace (right). Colored volumes are Creation Kit editor markers.</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="headline">The latest build.</h2>
+          <p class="lead">Milestone 3 is a full 8×8-cell region: generated terrain and river, transplanted sites, a highway with a vanilla bridge, biome fill, navmesh, and LOD, written by one command.</p>
+        </div>
+        <div class="bento">
+          <figure class="figure span-3 reveal">
+            <img src="assets/img/mcp-m3-bridge.jpg" alt="A vanilla stone bridge carrying the generated highway over a river in rocky, generated terrain" width="717" height="461" loading="lazy">
+            <figcaption><b>River crossing.</b> The highway meets the river on a vanilla bridge, seated on generated banks no steeper than Bethesda’s.</figcaption>
+          </figure>
+          <figure class="figure span-3 reveal d1">
+            <img src="assets/img/mcp-m3-site.jpg" alt="A transplanted settlement among pines on generated terrain, viewed in the Creation Kit" width="717" height="461" loading="lazy">
+            <figcaption><b>Site on new ground.</b> A transplanted settlement in the region’s pine biome. Boxes and rings are Creation Kit editor markers.</figcaption>
+          </figure>
+          <figure class="figure span-6 reveal">
+            <img src="assets/img/mcp-terrain-r11.jpg" alt="Three distant-LOD terrain views from the same camera: generator round 10, round 11, and vanilla Skyrim" width="1444" height="498" loading="lazy">
+            <figcaption><b>Mountains, round by round.</b> Terrain round 10 (left), the approved round 11 (center), and vanilla Tamriel (right), same camera and textured LOD. Every round is judged against vanilla.</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -188,7 +229,7 @@
           <div class="card span-2 reveal d1">
             <p class="kicker">Stack</p>
             <h3 class="title">Built with</h3>
-            <div class="chips"><span class="chip">Python</span><span class="chip">MCP (stdio)</span><span class="chip">C# / .NET</span><span class="chip">Mutagen</span><span class="chip">C++ CKPE plug-in</span><span class="chip">Creation Kit</span><span class="chip">Local Qwen LLM</span></div>
+            <div class="chips"><span class="chip">Python</span><span class="chip">MCP (stdio)</span><span class="chip">C# / .NET 10</span><span class="chip">Mutagen</span><span class="chip">C++ CKPE plug-in</span><span class="chip">Creation Kit</span><span class="chip">xLODGen</span><span class="chip">Papyrus test harness</span><span class="chip">Local Qwen LLM</span></div>
             <p class="muted" style="margin-top:18px;font-size:15px">Developed with a team of AI coding agents (Claude, Codex, DeepSeek, and a local Qwen model) working under one shared set of project rules.</p>
           </div>
         </div>
@@ -200,7 +241,8 @@
         <div class="card reveal" style="text-align:center">
           <p class="kicker">Status</p>
           <h2 class="title">In active development.</h2>
-          <p class="muted" style="max-width:620px;margin:10px auto 0">The repository is private while the core pipeline matures. Follow along on GitHub or X for updates.</p>
+          <p class="muted" style="max-width:620px;margin:10px auto 0">Milestone 1, the Helgen transplant, is accepted. Milestone 3, a full region, waits on its final mountain pass and an in-game walk-through. The repository is private while the core pipeline matures. Follow along on GitHub or X for updates.</p>
+          <p class="muted" style="font-size:13px;margin-top:10px">Updated October 28, 2026.</p>
           <div class="actions">
             <a class="btn" href="https://github.com/14manj01" target="_blank" rel="noopener"><span class="i i-github"></span>GitHub</a>
             <a class="btn ghost" href="https://x.com/TheBugCPT" target="_blank" rel="noopener"><span class="i i-x"></span>@TheBugCPT</a>
