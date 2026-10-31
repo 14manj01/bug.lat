@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skyrim Creation Kit MCP Log: October 29, 2026 | James Mann</title>
+  <meta name="description" content="Skyrim Creation Kit MCP log, October 29, 2026: reworked waterfalls, terrain-driven biomes, a desert scene, status of every part, timeline and next steps.">
+  <meta name="theme-color" content="#000000">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://bug.lat/mcp-log-2026-10-29.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Skyrim Creation Kit MCP Server — Project Log, October 29, 2026">
+  <meta property="og:description" content="Waterfalls reworked, biomes placed from the land, a new desert scene, and the status of every part of the pipeline, one week in.">
+  <meta property="og:url" content="https://bug.lat/mcp-log-2026-10-29.html">
+  <meta property="og:image" content="https://bug.lat/assets/img/mcp/waterfalls-before-after-vanilla.jpg">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="1080">
+  <meta property="og:image:alt" content="Close-ups of three waterfalls: before the rework, after, and vanilla Skyrim">
+  <meta property="article:published_time" content="2026-10-29">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261031">
+  <script>document.documentElement.classList.add("js")</script>
+  <meta name="author" content="James G. Mann">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta property="og:site_name" content="James Mann, Ph.D.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@TheBugCPT">
+  <meta name="twitter:creator" content="@TheBugCPT">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://bug.lat/mcp-log-2026-10-29.html#article",
+        "url": "https://bug.lat/mcp-log-2026-10-29.html",
+        "mainEntityOfPage": "https://bug.lat/mcp-log-2026-10-29.html",
+        "headline": "Skyrim Creation Kit MCP Server project log: October 29, 2026",
+        "description": "Project log for the Skyrim Creation Kit MCP Server on October 29, 2026: reworked waterfalls, terrain-driven biomes, a desert scene, the status of every part, the timeline and next steps.",
+        "datePublished": "2026-10-29",
+        "dateModified": "2026-10-29",
+        "inLanguage": "en-US",
+        "author": { "@id": "https://bug.lat/#person" },
+        "publisher": { "@id": "https://bug.lat/#person" },
+        "isPartOf": { "@id": "https://bug.lat/#website" },
+        "about": { "@id": "https://bug.lat/mcp.html#software" },
+        "image": ["https://bug.lat/assets/img/mcp/waterfalls-before-after-vanilla.jpg", "https://bug.lat/assets/img/mcp/biomes-before-after-vanilla.jpg", "https://bug.lat/assets/img/mcp/desert-oblique.jpg", "https://bug.lat/assets/img/mcp/m3-top-r3-r5-vanilla.jpg"],
+        "breadcrumb": { "@id": "https://bug.lat/mcp-log-2026-10-29.html#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://bug.lat/mcp-log-2026-10-29.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bug.lat/" },
+          { "@type": "ListItem", "position": 2, "name": "MCP Project", "item": "https://bug.lat/mcp.html" },
+          { "@type": "ListItem", "position": 3, "name": "Project log: October 29, 2026", "item": "https://bug.lat/mcp-log-2026-10-29.html" }
+        ]
+      },
+      { "@type": "Person", "@id": "https://bug.lat/#person", "name": "James Mann", "alternateName": ["James G. Mann"], "url": "https://bug.lat/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="assets/img/avatar.jpg" alt="" width="26" height="26">bug.lat</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resume.html">Résumé</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="programming.html">Programming</a></li>
+        <li><a href="mcp.html">MCP Project</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <article>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow reveal">Project log · <time datetime="2026-10-29">October 29, 2026</time></p>
+        <h1 class="headline reveal d1"><span class="grad-blue">Skyrim Creation Kit MCP</span> log: October 29, 2026</h1>
+        <p class="lead reveal d2">One week into the <a href="mcp.html">Skyrim Creation Kit MCP Server</a>: waterfalls reworked, biomes placed from the land instead of the map, and a new desert scene. Below are the status of every part on that day, the timeline so far, and what came next.</p>
+        <div class="actions reveal d3">
+          <a class="btn" href="mcp.html">Back to the Skyrim Creation Kit MCP Server</a>
+          <a class="btn ghost" href="https://github.com/14manj01/creationkit-mcp" target="_blank" rel="noopener"><span class="i i-github"></span>creationkit-mcp on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section anchor" id="status" style="padding-top:40px">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Where things stand</p>
+          <h2 class="headline">Status, October 29.</h2>
+          <p class="lead">Most of the pipeline now runs end to end. The current work fixes what James flagged in the last review, then builds the next test region on the new biomes.</p>
+        </div>
+        <div class="table-wrap reveal"><table class="data"><thead><tr><th>Part</th><th>State</th><th>Latest result</th></tr></thead><tbody>
+<tr><td>Terrain generator</td><td><span class="st ok">Approved</span></td><td>Eight scene types quilted from vanilla Skyrim terrain pieces. James: “I think this looks amazing.”</td></tr>
+<tr><td>Waterfalls</td><td><span class="st ok">Reworked today</span></td><td>Smooth humps replaced by broken rock steps and a plunge pool; size and steepness now within vanilla’s typical spread.</td></tr>
+<tr><td>Desert scene</td><td><span class="st ok">New today</span></td><td>Built from the Reach’s badlands, Eastmarch’s volcanic flats and Solstheim’s ash plains. Stand-in until custom desert models arrive.</td></tr>
+<tr><td>Biomes</td><td><span class="st ok">New today</span></td><td>Placed from the scene type and the terrain, never from map position. No more straight borders.</td></tr>
+<tr><td>Test region (M3)</td><td><span class="st run">Round 6 building</span></td><td>Round 5 is the approved baseline. Round 6 rebuilds it on the new biomes and fixes the site-ground squares.</td></tr>
+<tr><td>Joined regions</td><td><span class="st ok">Working</span></td><td>Three regions built separately and joined with 0 seam differences; navmesh connects across.</td></tr>
+<tr><td>Site plan</td><td><span class="st run">Revising</span></td><td>Learned from 279 Tamriel sites. Being changed so cities only go on ground as good as vanilla’s city sites.</td></tr>
+<tr><td>Road network</td><td><span class="st run">Revising</span></td><td>Learned from Skyrim’s 78 km of roads. Fords and smoother hairpins in progress.</td></tr>
+<tr><td>Caves and ruins</td><td><span class="st run">Round 3</span></td><td>Generated from Bethesda’s kit pieces. Round 3 adds open caverns.</td></tr>
+<tr><td>Site variation</td><td><span class="st wait">Awaiting review</span></td><td>Farms and forts re-laid-out and re-dressed with swapped building and fence kits.</td></tr>
+<tr><td>In the game</td><td><span class="st next">This week</span></td><td>The test harness boots and restores Skyrim reliably; walking the generated region in game is next.</td></tr>
+</tbody></table></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section anchor" id="changes">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Landed on October 29</p>
+          <h2 class="headline">Waterfalls, biomes and a desert scene.</h2>
+          <p class="lead">Three changes landed and were verified that morning. Each is shown beside vanilla Skyrim.</p>
+        </div>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/waterfalls-before-after-vanilla.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/waterfalls-before-after-vanilla.jpg" alt="Close-ups of three waterfalls: before the rework, after, and vanilla Skyrim" width="1600" height="1080" loading="lazy"></a>
+          <figcaption><b>Waterfalls, before (left), after (middle), vanilla (right).</b> The old falls were smooth humps ending in a wall. They are now a concave drop made of small rock steps with benches, ending in a plunge pool. Untextured terrain, water in blue.</figcaption>
+        </figure>
+        <div class="prose reveal" style="margin-top:28px">
+          <p>Median face steepness fell from 75° to 39° (vanilla: 27°), and the biggest single step on a waterfall face from 672 to 200 units (vanilla: 164). The full before/after measurements are in the <a href="mcp.html#water">rivers, lakes and waterfalls section</a> of the project page.</p>
+        </div>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/biomes-before-after-vanilla.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/biomes-before-after-vanilla.jpg" alt="Five textured top views: the old biome map, two versions of the new one, and two vanilla Skyrim areas" width="1800" height="367" loading="lazy"></a>
+          <figcaption><b>Left to right:</b> the old biome map, which split the region along a straight line; the new map’s default; the new map with a forest-line setting that keeps the test region’s pine/tundra transition; and two vanilla Tamriel areas for comparison.</figcaption>
+        </figure>
+        <div class="prose reveal" style="margin-top:28px">
+          <p>Biomes are now placed from the scene type and the shape of the land, never from map position. In the test region the longest straight run of biome border fell from 17 km to 12 km (vanilla areas: 14–34 km). See <a href="mcp.html#biomes">how terrain-driven biomes work</a>.</p>
+        </div>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/desert-oblique.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/desert-oblique.jpg" alt="Five low-angle terrain views: three generated desert scenes, the vanilla Reach and vanilla Solstheim ash" width="1800" height="250" loading="lazy"></a>
+          <figcaption><b>Desert terrain.</b> Three seeds of the new desert scene (left) beside the vanilla Reach and Solstheim’s ash lands (right), the sources it is built from. Dunes, mesas and dry riverbeds come later with custom models.</figcaption>
+        </figure>
+        <div class="prose reveal" style="margin-top:28px">
+          <p>The desert scene is a stand-in built from the Reach’s badlands, Eastmarch’s volcanic flats and Solstheim’s ash plains until custom models arrive. More on <a href="mcp.html#flora">new biomes such as Anequina</a>.</p>
+        </div>
+<figure class="figure reveal">
+          <a class="zoom" href="assets/img/mcp/m3-top-r3-r5-vanilla.jpg" target="_blank" rel="noopener"><img src="assets/img/mcp/m3-top-r3-r5-vanilla.jpg" alt="Three textured top-down LOD views: region round 3, round 5, and vanilla Skyrim" width="1800" height="614" loading="lazy"></a>
+          <figcaption><b>The approved baseline.</b> Round 3 (left), the approved round 5 on the new terrain generator (center), and a vanilla Tamriel area (right). Round 6 rebuilds round 5 on the new biomes; see <a href="mcp.html#region">the Milestone 3 test region</a>.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section anchor" id="timeline">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Timeline</p>
+          <h2 class="headline">Seven days in.</h2>
+          <p class="lead">From an empty repository on October 23 to generated worlds with transplanted towns.</p>
+        </div>
+        <ol class="timeline reveal">
+          <li><time>Oct 23–24</time><b>Foundations</b>Plugin writing and Mutagen read-back, the Creation Kit sandbox, the first MCP tools.</li>
+          <li><time>Oct 27</time><b>Milestone 1: Helgen</b>The whole fort town transplanted into a new worldspace with terrain and navmesh. Accepted.</li>
+          <li><time>Oct 28</time><b>Region pieces accepted</b>Roads with blended shoulders, lakes and coast, biomes, site variation, Fort Greymoor with doors and bandits, the Guldun Rock cave, distant LOD, regions and map markers. M3 round 3 became the best region so far, but its mountains weren’t Skyrim’s.</li>
+          <li><time>Oct 28, evening</time><b>The terrain redesign</b>Two prototypes; James chose quilting from vanilla terrain: “so much better… not all mountains anymore.” Ported into the pipeline the same night.</li>
+          <li><time>Oct 29, overnight</time><b>Ten items in one night</b>Per-scene layouts, M3 round 5 on the new terrain, the dungeon generator, a site planner, a road planner, joined regions, site variation round 4, desert flora intake, the critic. James approved all recommended options in the morning.</li>
+          <li><time>Oct 29, morning</time><b>Biomes, desert, waterfalls</b>Biomes from the scene type, the desert scene and the waterfall rework landed and were verified. M3 round 6, caverns and the plan fixes are in progress.</li>
+        </ol>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section anchor" id="next">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Next</p>
+          <h2 class="headline">Next steps after October 29.</h2>
+          <p class="lead">In order:</p>
+        </div>
+        <div class="table-wrap reveal"><table class="data"><tbody>
+<tr><td>1</td><td>M3 round 6 on the new biomes, with site ground blended into its surroundings.</td></tr>
+<tr><td>2</td><td>First in-game walk of a generated region with the test harness.</td></tr>
+<tr><td>3</td><td>Cities on their best ground, fords and smoother roads; then a full generated world tile by tile from a site and road plan.</td></tr>
+<tr><td>4</td><td>Open caverns and Nordic ruins at vanilla quality, linked to the overworld.</td></tr>
+<tr><td>5</td><td>Custom desert models for Anequina: dunes, mesas and dry riverbeds.</td></tr>
+</tbody></table></div>
+        <div class="card reveal" style="text-align:center;margin-top:28px">
+          <p class="kicker">The whole project</p>
+          <h2 class="title">Skyrim Creation Kit MCP Server.</h2>
+          <p class="muted" style="max-width:620px;margin:10px auto 0">Terrain, rivers, biomes, transplanted sites, roads, caves, verification and how the project is built, with every picture beside vanilla.</p>
+          <div class="actions">
+            <a class="btn" href="mcp.html">Read the project overview</a>
+            <a class="btn ghost" href="https://github.com/14manj01/creationkit-mcp" target="_blank" rel="noopener"><span class="i i-github"></span>View on GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <span>© <span data-year>2026</span> James Mann. Views are my own and do not reflect the U.S. Army or Department of Defense. Skyrim is a trademark of ZeniMax Media; this is an unaffiliated fan project.</span>
+      <div class="footer-social">
+        <a href="https://github.com/14manj01" target="_blank" rel="noopener" aria-label="GitHub"><span class="i i-github"></span></a>
+        <a href="https://x.com/TheBugCPT" target="_blank" rel="noopener" aria-label="X"><span class="i i-x"></span></a>
+        <a href="https://steamcommunity.com/id/aedesaegypti" target="_blank" rel="noopener" aria-label="Steam"><span class="i i-steam"></span></a>
+        <button type="button" data-copy="Cpt72bug" aria-label="Copy Discord username"><span class="i i-discord"></span></button>
+        <a href="https://www.researchgate.net/profile/James-Mann-3" target="_blank" rel="noopener" aria-label="ResearchGate"><span class="i i-researchgate"></span></a>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

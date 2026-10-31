@@ -44,4 +44,28 @@
     <image:image><image:loc>https://bug.lat/assets/img/mcp/variation-fort.jpg</image:loc></image:image>
     <image:image><image:loc>https://bug.lat/assets/img/mcp/waterfalls-before-after-vanilla.jpg</image:loc></image:image>
   </url>
+  <url>
+    <loc>https://bug.lat/primedsherlock.html</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://bug.lat/army-entomologist.html</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://bug.lat/mcp-log-2026-10-29.html</loc>
+    <lastmod>2026-10-29</lastmod>
+  </url>
+  <url>
+    <loc>https://bug.lat/research/aedes-japonicus-texas.html</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://bug.lat/research/culex-coronator-distribution.html</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://bug.lat/research/harris-county-mosquito-feeding.html</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
 </urlset>

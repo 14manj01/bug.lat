@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PrimedSherlock: Cas12 crRNA Design Tool for RPA Assays</title>
+  <meta name="description" content="PrimedSherlock is a free Python tool that designs highly specific CRISPR-Cas12/Cas13 crRNAs from PrimedRPA primer sets. Setup, parameters, and citation.">
+  <meta name="theme-color" content="#000000">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://bug.lat/primedsherlock.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PrimedSherlock: CRISPR-Cas12 crRNA design tool">
+  <meta property="og:description" content="Design highly specific Cas12/Cas13 crRNAs from RPA primer sets. Open source, published in BMC Bioinformatics.">
+  <meta property="og:url" content="https://bug.lat/primedsherlock.html">
+  <meta property="og:image" content="https://bug.lat/assets/img/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="James Mann, Ph.D. — Medical Entomologist, Molecular Biologist, Programmer">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261031">
+  <script>document.documentElement.classList.add("js")</script>
+  <meta name="author" content="James G. Mann">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta property="og:site_name" content="James Mann, Ph.D.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@TheBugCPT">
+  <meta name="twitter:creator" content="@TheBugCPT">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://bug.lat/primedsherlock.html#webpage",
+        "url": "https://bug.lat/primedsherlock.html",
+        "name": "PrimedSherlock: Cas12 crRNA Design Tool for RPA Assays",
+        "isPartOf": { "@id": "https://bug.lat/#website" },
+        "about": { "@id": "https://bug.lat/primedsherlock.html#software" },
+        "mainEntity": { "@id": "https://bug.lat/primedsherlock.html#software" },
+        "breadcrumb": { "@type": "BreadcrumbList", "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bug.lat/" },
+          { "@type": "ListItem", "position": 2, "name": "Programming", "item": "https://bug.lat/programming.html" },
+          { "@type": "ListItem", "position": 3, "name": "PrimedSherlock", "item": "https://bug.lat/primedsherlock.html" }
+        ] }
+      },
+      { "@type": "Person", "@id": "https://bug.lat/#person", "name": "James Mann", "alternateName": ["James G. Mann", "Mann JG"], "url": "https://bug.lat/" },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://bug.lat/primedsherlock.html#software",
+        "name": "PrimedSherlock",
+        "description": "Python command-line tool that designs highly specific CRISPR-Cas12 and CRISPR-Cas13 crRNAs from RPA primer sets (PrimedRPA output), with Cas-OFFinder off-target screening.",
+        "applicationCategory": "ScientificApplication",
+        "applicationSubCategory": "Bioinformatics",
+        "programmingLanguage": "Python",
+        "license": "https://opensource.org/licenses/MIT",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "url": "https://bug.lat/primedsherlock.html",
+        "sameAs": "https://github.com/JamesGerardMann/PrimedSherlock",
+        "downloadUrl": "https://github.com/JamesGerardMann/PrimedSherlock",
+        "author": { "@id": "https://bug.lat/#person" },
+        "keywords": "PrimedSherlock, Cas12 crRNA design, CRISPR-Cas12 crRNA design tool, Cas13, RPA primer design, PrimedRPA, Cas-OFFinder, CRISPR diagnostics",
+        "citation": { "@id": "https://doi.org/10.1186/s12859-022-04968-5" }
+      },
+      {
+        "@type": "ScholarlyArticle",
+        "@id": "https://doi.org/10.1186/s12859-022-04968-5",
+        "headline": "PrimedSherlock: a tool for rapid design of highly specific CRISPR-Cas12 crRNAs",
+        "author": [{ "@id": "https://bug.lat/#person" }, { "@type": "Person", "name": "R. Jason Pitts" }],
+        "datePublished": "2022-10-14",
+        "isPartOf": { "@type": "PublicationVolume", "volumeNumber": "23", "isPartOf": { "@type": "Periodical", "name": "BMC Bioinformatics", "issn": "1471-2105" } },
+        "pagination": "428",
+        "url": "https://doi.org/10.1186/s12859-022-04968-5",
+        "sameAs": ["https://pubmed.ncbi.nlm.nih.gov/36241974/", "https://pmc.ncbi.nlm.nih.gov/articles/PMC9569017/"]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="assets/img/avatar.jpg" alt="" width="26" height="26">bug.lat</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resume.html">Résumé</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="programming.html">Programming</a></li>
+        <li><a href="mcp.html">MCP Project</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow reveal">Bioinformatics · Python · MIT license</p>
+        <h1 class="display grad reveal d1">PrimedSherlock: Cas12 crRNA Design Tool</h1>
+        <p class="lead reveal d2">PrimedSherlock is a free, open-source Python tool that designs highly specific CRISPR-Cas12 and Cas13 crRNAs from RPA primer sets. It was published in <i>BMC Bioinformatics</i> in 2022.</p>
+        <div class="actions reveal d3">
+          <a class="btn" href="https://github.com/JamesGerardMann/PrimedSherlock" target="_blank" rel="noopener"><span class="i i-github"></span>Get it on GitHub</a>
+          <a class="more" href="https://doi.org/10.1186/s12859-022-04968-5" target="_blank" rel="noopener">Read the paper</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="bento">
+        <div class="card span-6 reveal">
+          <h2 class="title">What PrimedSherlock does</h2>
+          <p>CRISPR-Cas12 diagnostic assays pair an isothermal amplification step, recombinase polymerase amplification (RPA), with a Cas12 crRNA that recognizes the amplified target. Picking crRNAs by hand is slow, and a poorly chosen crRNA can react with related, non-target sequences.</p>
+          <p style="margin-top:14px">PrimedSherlock automates that choice. It starts from RPA primer sets, proposes crRNAs inside each amplicon, and screens them against off-target (background) sequences so that only highly specific crRNA and primer combinations are kept. In the published study, crRNAs it designed against West Nile virus, Zika virus, and all four dengue virus serotypes detected their targets with minimal off-target background.</p>
+        </div>
+
+        <div class="card span-6 reveal">
+          <h2 class="title">How it works: from RPA primer sets to specific crRNAs</h2>
+          <ul class="list-plain">
+            <li><b>Primer sets in.</b> PrimedSherlock reads the <code>Output_Sets.csv</code> primer sets generated by <a href="https://github.com/MatthewHiggins2017/bioconda-PrimedRPA" target="_blank" rel="noopener">PrimedRPA</a>, the recommended source of RPA primers. Hand-made primer pairs are also supported.</li>
+            <li><b>On-target and background sequences.</b> It uses your on-target genomes (<code>input.fna</code>) and the PrimedRPA background database (<code>background_db.fasta</code>).</li>
+            <li><b>Off-target screening.</b> Candidate crRNAs are checked with <a href="http://www.rgenome.net/cas-offinder/" target="_blank" rel="noopener">Cas-OFFinder</a>, on the CPU or a GPU.</li>
+            <li><b>Results out.</b> Each run writes <code>[RunID]_FinalOutput.csv</code> with the crRNA and primer sets that passed.</li>
+          </ul>
+        </div>
+
+        <div class="card span-6 reveal">
+          <h2 class="title">Install and run</h2>
+          <p>Set up a Python environment with Biopython, pandas, and configparser, then clone the repository into a new folder:</p>
+          <pre class="cite-text">gh repo clone JamesGerardMann/PrimedSherlock</pre>
+          <p style="margin-top:14px">Copy three files from your PrimedRPA run into that folder:</p>
+          <pre class="cite-text">background_db.fasta
+input.fna
+Output_Sets.csv</pre>
+          <p style="margin-top:14px">Choose the CPU or GPU that Cas-OFFinder should use. From a command prompt in the PrimedSherlock folder, run <code>Cas-Offinder.exe</code> and note the ID of your device under “Available Device List”. In the included <code>.py</code> file, replace each <code>G0</code> with that device ID (for example <code>C1</code> for CPU 1). Save the file, then run <code>script.bat</code>.</p>
+        </div>
+
+        <div class="card span-6 reveal">
+          <h2 class="title">Key parameters</h2>
+          <ul class="list-plain">
+            <li><b><code>MismatchThreshold</code></b>: how many mismatches a crRNA target may have against the included strains, usually 0–3. Most published examples used 3; the Zika example used 5. If no crRNA sets are produced, raise this value.</li>
+            <li><b><code>Use_PrimedRPA</code></b>: read a PrimedRPA <code>Output_Sets.csv</code>. Set to No to supply your own primer pairs.</li>
+            <li><b><code>Threadcount</code></b>: CPU threads for Cas-OFFinder; more threads run faster.</li>
+            <li><b><code>Amplicon_Min_Size</code> / <code>Amplicon_Max_Size</code></b>: amplicon size limits. Smaller amplicons amplify faster with RPA polymerase.</li>
+            <li><b><code>Max_Background_Identity</code></b>: PrimedRPA’s off-target amplification threshold; lower is stricter.</li>
+            <li><b><code>Off_Target_Mismatch_Score</code></b>: the minimum number of mismatches to off-target sequences for a crRNA to count as safe.</li>
+            <li><b><code>Contingency_crRNA_Utilization</code></b>: experimental; leave it off.</li>
+          </ul>
+        </div>
+
+        <div class="card span-6 reveal">
+          <h2 class="title">Cite PrimedSherlock</h2>
+          <p class="cite-text">Mann, J. G., &amp; Pitts, R. J. (2022). PrimedSherlock: a tool for rapid design of highly specific CRISPR-Cas12 crRNAs. <i>BMC Bioinformatics, 23</i>, 428. https://doi.org/10.1186/s12859-022-04968-5</p>
+          <div class="links" style="margin-top:14px">
+            <a class="more" href="https://doi.org/10.1186/s12859-022-04968-5" target="_blank" rel="noopener">DOI 10.1186/s12859-022-04968-5</a>
+            <a class="more" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9569017/" target="_blank" rel="noopener">Free full text (PMC9569017)</a>
+            <a class="more" href="https://pubmed.ncbi.nlm.nih.gov/36241974/" target="_blank" rel="noopener">PubMed 36241974</a>
+          </div>
+        </div>
+
+        <div class="card span-6 reveal">
+          <h2 class="title">Third-party software and support</h2>
+          <p>PrimedSherlock incorporates parts of <a href="https://github.com/MatthewHiggins2017/bioconda-PrimedRPA" target="_blank" rel="noopener">PrimedRPA</a> and includes a <a href="http://www.rgenome.net/cas-offinder/" target="_blank" rel="noopener">Cas-OFFinder</a> executable. It is released under the MIT license. Report bugs through the <a href="https://github.com/JamesGerardMann/PrimedSherlock" target="_blank" rel="noopener">GitHub repository</a>.</p>
+          <p style="margin-top:14px">Related: <a href="publications.html">publications by James Mann</a>, <a href="research/harris-county-mosquito-feeding.html">mosquito blood meal analysis in Harris County</a>, and <a href="programming.html">other software</a>.</p>
+        </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <span>© <span data-year>2026</span> James Mann. Views are my own and do not reflect the U.S. Army or Department of Defense.</span>
+      <div class="footer-social">
+        <a href="https://github.com/14manj01" target="_blank" rel="noopener" aria-label="GitHub"><span class="i i-github"></span></a>
+        <a href="https://x.com/TheBugCPT" target="_blank" rel="noopener" aria-label="X"><span class="i i-x"></span></a>
+        <a href="https://steamcommunity.com/id/aedesaegypti" target="_blank" rel="noopener" aria-label="Steam"><span class="i i-steam"></span></a>
+        <button type="button" data-copy="Cpt72bug" aria-label="Copy Discord username"><span class="i i-discord"></span></button>
+        <a href="https://www.researchgate.net/profile/James-Mann-3" target="_blank" rel="noopener" aria-label="ResearchGate"><span class="i i-researchgate"></span></a>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
