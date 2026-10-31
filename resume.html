@@ -65,7 +65,8 @@
         ],
         "alumniOf": [
           { "@type": "CollegeOrUniversity", "name": "Baylor University", "url": "https://www.baylor.edu/" },
-          { "@type": "CollegeOrUniversity", "name": "Montclair State University", "url": "https://www.montclair.edu/" }
+          { "@type": "CollegeOrUniversity", "name": "Montclair State University", "url": "https://www.montclair.edu/" },
+          { "@type": "ResearchOrganization", "name": "Pitts Lab, Arthropod Sensory Biology & Neuroethology Lab, Baylor University", "url": "https://sites.baylor.edu/jason_pitts/" }
         ],
         "hasCredential": [
           { "@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "Doctor of Philosophy (Ph.D.), Molecular Biology", "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Baylor University" } },
@@ -92,13 +93,21 @@
           "https://www.linkedin.com/in/james-mann-ba7a4b6b",
           "https://scholar.google.com/citations?user=msSLmUoAAAAJ"
         ],
-        "subjectOf": {
-          "@type": "ProfilePage",
-          "url": "https://graduate.baylor.edu/person/james-mann",
-          "name": "James Mann | Graduate School | Baylor University",
-          "datePublished": "2023-08-14",
-          "publisher": { "@type": "CollegeOrUniversity", "name": "Baylor University Graduate School", "url": "https://graduate.baylor.edu/" }
-        }
+        "subjectOf": [
+          {
+            "@type": "ProfilePage",
+            "url": "https://graduate.baylor.edu/person/james-mann",
+            "name": "James Mann | Graduate School | Baylor University",
+            "datePublished": "2023-08-14",
+            "publisher": { "@type": "CollegeOrUniversity", "name": "Baylor University Graduate School", "url": "https://graduate.baylor.edu/" }
+          },
+          {
+            "@type": "WebPage",
+            "url": "https://sites.baylor.edu/jason_pitts/lab-alumni/",
+            "name": "Lab Alumni | Pitts Lab",
+            "publisher": { "@type": "ResearchOrganization", "name": "Pitts Lab, Baylor University", "url": "https://sites.baylor.edu/jason_pitts/" }
+          }
+        ]
       }
     ]
   }
@@ -162,7 +171,7 @@
 
         <article class="role reveal">
           <div class="role-head"><h3>Research Assistant</h3><span class="role-date">2021 – 2022</span></div>
-          <p class="role-org">Baylor University (R1), Waco, TX · Arthropod Sensory Biology &amp; Neuroethology Lab</p>
+          <p class="role-org">Baylor University (R1), Waco, TX · <a href="https://sites.baylor.edu/jason_pitts/lab-alumni/" target="_blank" rel="noopener">Arthropod Sensory Biology &amp; Neuroethology Lab (Pitts Lab)</a></p>
           <ul>
             <li>Managed large-scale mosquito species record efforts across Texas, identifying the <b>first occurrence of invasive <i>Aedes japonicus</i></b> in the state and characterizing blood-feeding preferences of vector species.</li>
             <li>Developed a CRISPR-Cas12 method for arbovirus detection, supported by custom bioinformatics (<a href="publications.html">PrimedSherlock</a>).</li>
