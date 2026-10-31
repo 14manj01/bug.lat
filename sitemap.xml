@@ -2,24 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://bug.lat/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <image:image><image:loc>https://bug.lat/assets/img/avatar.jpg</image:loc></image:image>
+    <image:image><image:loc>https://bug.lat/assets/img/og-card.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://bug.lat/resume.html</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-31</lastmod>
   </url>
   <url>
     <loc>https://bug.lat/publications.html</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-31</lastmod>
   </url>
   <url>
     <loc>https://bug.lat/programming.html</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-31</lastmod>
   </url>
   <url>
     <loc>https://bug.lat/mcp.html</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <image:image><image:loc>https://bug.lat/assets/img/mcp-helgen-compare.jpg</image:loc></image:image>
     <image:image><image:loc>https://bug.lat/assets/img/mcp-highway.jpg</image:loc></image:image>
     <image:image><image:loc>https://bug.lat/assets/img/mcp-terrain-r11.jpg</image:loc></image:image>
