@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Software by James Mann: PrimedSherlock, RuneLite &amp; Skyrim MCP</title>
-  <meta name="description" content="Software by James G. Mann: the PrimedSherlock Cas12 crRNA design tool (Python), RuneLite plugins for Old School RuneScape (Java), and the Skyrim Creation Kit MCP server.">
+  <meta name="description" content="Software by James G. Mann: the PrimedSherlock Cas12 crRNA design tool (Python), RuneLite plugins for Old School RuneScape (Java), the Skyrim Creation Kit MCP server, and CamSentry, an MCP server that lets a local AI model watch home cameras.">
   <meta name="theme-color" content="#000000">
   <meta name="color-scheme" content="dark">
   <link rel="canonical" href="https://bug.lat/programming.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Programming — James Mann, Ph.D.">
-  <meta property="og:description" content="CRISPR design tools, RuneLite plugins, and an MCP server for Skyrim worldspaces.">
+  <meta property="og:description" content="CRISPR design tools, RuneLite plugins, and MCP servers for Skyrim worldspaces and home cameras.">
   <meta property="og:url" content="https://bug.lat/programming.html">
   <meta property="og:image" content="https://bug.lat/assets/img/og-card.jpg">
   <meta property="og:image:width" content="1200">
@@ -47,7 +47,8 @@
       { "@type": "SoftwareSourceCode", "name": "PrimedSherlock", "description": "Command-line tool that designs highly specific CRISPR-Cas12/Cas13 crRNAs from RPA primer sets, with Cas-OFFinder off-target screening.", "codeRepository": "https://github.com/JamesGerardMann/PrimedSherlock", "programmingLanguage": "Python", "author": { "@id": "https://bug.lat/#person" }, "citation": "https://doi.org/10.1186/s12859-022-04968-5" },
       { "@type": "SoftwareSourceCode", "name": "Quest Cape Helper", "description": "RuneLite plugin that walks the Optimal Quest Order for Old School RuneScape step by step with an overlay and OSRS Wiki guide links.", "codeRepository": "https://github.com/14manj01/QuestCapeHelper", "programmingLanguage": "Java", "author": { "@id": "https://bug.lat/#person" } },
       { "@type": "SoftwareSourceCode", "name": "Accessibility Plus", "description": "RuneLite plugin with a high-contrast dialog overlay, colorblind-friendly minimap shapes, and text-to-speech for dialog.", "codeRepository": "https://github.com/14manj01/AccessibilityPlus", "programmingLanguage": "Java", "license": "https://opensource.org/licenses/BSD-2-Clause", "author": { "@id": "https://bug.lat/#person" } },
-      { "@type": "SoftwareSourceCode", "name": "Idle Crab Notifier", "description": "RuneLite plugin for sand crab training at Hosidius: combat-stop notifications and aggro timer warnings.", "codeRepository": "https://github.com/14manj01/IDLECrab-MYIP", "programmingLanguage": "Java", "author": { "@id": "https://bug.lat/#person" } }
+      { "@type": "SoftwareSourceCode", "name": "Idle Crab Notifier", "description": "RuneLite plugin for sand crab training at Hosidius: combat-stop notifications and aggro timer warnings.", "codeRepository": "https://github.com/14manj01/IDLECrab-MYIP", "programmingLanguage": "Java", "author": { "@id": "https://bug.lat/#person" } },
+      { "@type": "SoftwareSourceCode", "name": "CamSentry MCP", "description": "Unofficial read-only Model Context Protocol server that lets a local AI model watch Wyze cameras: a local vision model describes each event still, and alerts go out by push notification or email.", "codeRepository": "https://github.com/14manj01/camsentry-mcp", "programmingLanguage": "Python", "license": "https://opensource.org/licenses/MIT", "author": { "@id": "https://bug.lat/#person" } }
     ]
   }
   </script>
@@ -72,7 +73,7 @@
       <div class="wrap">
         <p class="eyebrow reveal">Programming</p>
         <h1 class="display grad reveal d1">Software: PrimedSherlock, RuneLite Plugins &amp; Skyrim MCP</h1>
-        <p class="lead reveal d2">I write software that solves problems I actually have: designing CRISPR assays, making a game more accessible, and teaching local AI models to build worlds.</p>
+        <p class="lead reveal d2">I write software that solves problems I actually have: designing CRISPR assays, making a game more accessible, teaching local AI models to build worlds, and letting one keep watch over my cameras.</p>
         <div class="actions reveal d3">
           <a class="btn" href="https://github.com/14manj01" target="_blank" rel="noopener"><span class="i i-github"></span>github.com/14manj01</a>
           <a class="more" href="https://github.com/JamesGerardMann" target="_blank" rel="noopener">Research code</a>
@@ -89,6 +90,14 @@
             <p style="max-width:680px">A Model Context Protocol server exposing 80 tools that let AI models generate Skyrim Special Edition worlds: terrain quilted from vanilla landscape pieces, rivers and waterfalls, terrain-driven biomes, transplanted towns, learned road and site plans, generated caves, and navmesh. Output is verified with Mutagen and inspected in an isolated Creation Kit sandbox.</p>
             <div class="chips"><span class="chip">MCP</span><span class="chip">Local LLMs</span><span class="chip">Mutagen / .NET</span><span class="chip">Procedural terrain</span><span class="chip">366 tests</span></div>
             <span class="more">Read the project page</span>
+          </a>
+
+          <a class="card span-6 reveal" href="https://github.com/14manj01/camsentry-mcp" target="_blank" rel="noopener">
+            <p class="kicker">MCP server · Python</p>
+            <h2 class="headline" style="font-size:clamp(26px,3.6vw,38px)"><span class="grad-blue">CamSentry MCP</span></h2>
+            <p style="max-width:680px">An unofficial, read-only Model Context Protocol server that lets a local AI model watch Wyze cameras. A small vision model on your own computer tells people, pets, vehicles, and packages apart in each event still, pieces the stills into a timeline you can search in plain words, and sends an alert by push notification or email when someone arrives, lingers, or a package disappears. Camera images never leave the machine.</p>
+            <div class="chips"><span class="chip">MCP</span><span class="chip">Local LLMs</span><span class="chip">Ollama</span><span class="chip">13 tools</span><span class="chip">204 tests</span></div>
+            <span class="more">View on GitHub</span>
           </a>
 
           <a class="card span-3 reveal" href="primedsherlock.html">
@@ -135,6 +144,7 @@
           <p class="lead">Pulled live from my public repositories.</p>
         </div>
         <div class="repo-list reveal d1" id="repo-list" data-users="14manj01,JamesGerardMann">
+          <a class="repo" href="https://github.com/14manj01/camsentry-mcp" target="_blank" rel="noopener"><h3>camsentry-mcp</h3><p>Let a local model watch your cameras.</p><div class="project-meta"><span><span class="lang-dot" style="background:#3572A5"></span>Python</span></div></a>
           <a class="repo" href="https://github.com/14manj01/QuestCapeHelper" target="_blank" rel="noopener"><h3>QuestCapeHelper</h3><p>Optimal Quest Order guide for RuneLite.</p><div class="project-meta"><span><span class="lang-dot" style="background:#b07219"></span>Java</span></div></a>
           <a class="repo" href="https://github.com/14manj01/AccessibilityPlus" target="_blank" rel="noopener"><h3>AccessibilityPlus</h3><p>High-contrast dialog and colorblind minimap shapes.</p><div class="project-meta"><span><span class="lang-dot" style="background:#b07219"></span>Java</span></div></a>
           <a class="repo" href="https://github.com/14manj01/IDLECrab-MYIP" target="_blank" rel="noopener"><h3>IDLECrab-MYIP</h3><p>Idle Crabs at Hosidius.</p><div class="project-meta"><span><span class="lang-dot" style="background:#b07219"></span>Java</span></div></a>
